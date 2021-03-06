@@ -15,14 +15,14 @@ and edit it at any time. -->
 GET - /vote/:poll_id takes voter to the specified poll so they can submit vote (voting_url)
 POST - /vote : submits user votes
 
-<!-- EDIT -->
-
-GET - /poll/:poll_id takes creator to a page where they can choose to edit or delete a poll (admin_url)
-POST - /poll/:poll_id/delete allows creator to delete a poll
-
 <!-- RESULTS -->
 
 GET - /results/:poll_id : displays the results of the poll; poll id specified
+
+<!-- EDIT & DELETE -->
+
+GET - /poll/:poll_id takes creator to a page where they can choose to edit or delete a poll (admin_url)
+POST - /poll/:poll_id/delete allows creator to delete a poll
 
 ---
 
