@@ -3,7 +3,7 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS votes CASCADE;
 DROP TABLE IF EXISTS polls CASCADE;
-DROP TABLE IF EXISTS  CASCADE;
+DROP TABLE IF EXISTS options CASCADE;
 
 
 CREATE TABLE users (
@@ -19,7 +19,15 @@ CREATE TABLE polls (
   title VARCHAR(255),
   description TEXT,
   admin_url VARCHAR(255),
-  voting_url VARCHAR(255),
+  voting_url VARCHAR(255)
+);
+
+
+
+CREATE TABLE options (
+  id SERIAL PRIMARY KEY,
+  poll_id INTEGER REFERENCES polls(id) ON DELETE CASCADE,
+  choice VARCHAR(255)
 );
 
 CREATE TABLE votes (
@@ -28,10 +36,4 @@ CREATE TABLE votes (
   option_id INTEGER REFERENCES options(id) ON DELETE CASCADE,
   priority INTEGER,
   guest_name VARCHAR(255)
-);
-
-CREATE TABLE options (
-  id SERIAL PRIMARY KEY,
-  poll_id INTEGER REFERENCES polls(id) ON DELETE CASCADE,
-  choice VARCHAR(255),
 );
