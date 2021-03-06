@@ -50,6 +50,24 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+
+app.post("/voted", (req, res) => {
+  //res.render("index");
+
+  let op1 = req.body.op1;
+  let op2 = req.body.op2;
+  let op3 = req.body.op3;
+  let op4 = req.body.op4;
+
+  console.log(op1)
+  console.log(op2)
+  console.log(op3)
+  console.log(op4)
+
+   res.send("ok");
+
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
