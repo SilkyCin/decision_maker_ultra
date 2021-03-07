@@ -33,40 +33,32 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+// const usersRoutes = require("./routes/users");
+// const widgetsRoutes = require("./routes/widgets");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+// app.use("/api/users", usersRoutes(db));
+// app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-app.get("/", (req, res) => {
-  res.render("index");
-});
+// app.get("/", (req, res) => {
+//   res.render("index");
+// });
+const homeRoutes = require('./routes/home_routes.js');
+const voteRoutes = require('./routes/vote_routes.js');
+const pollRoutes = require('./routes/poll_routes.js');
+const resultRoutes = require('./routes/result_routes.js')
 
-
-app.post("/voted", (req, res) => {
-  //res.render("index");
-
-  let op1 = req.body.op1;
-  let op2 = req.body.op2;
-  let op3 = req.body.op3;
-  let op4 = req.body.op4;
-
-  console.log(op1)
-  console.log(op2)
-  console.log(op3)
-  console.log(op4)
-
-   res.send("ok");
-
-});
+app.use('/', homeRoutes);
+app.use('/vote/:poll_id', voteRoutes);
+app.use('/poll', pollRoutes);
+app.use('/poll/:poll_id', pollRoutes);
+app.use('results/:poll_id', resultRoutes);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
