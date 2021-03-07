@@ -2,13 +2,13 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
+const PORT = process.env.PORT || 8080;
+const ENV = process.env.ENV || "development";
+const express = require("express");
 const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const sass = require("node-sass-middleware");
+const app = express();
+const morgan = require('morgan');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -46,7 +46,6 @@ app.use(express.static("public"));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-<<<<<<< HEAD
 // app.get("/", (req, res) => {
 //   res.render("index");
 // });
@@ -60,75 +59,6 @@ app.use('/vote/:poll_id', voteRoutes);
 app.use('/poll', pollRoutes);
 app.use('/poll/:poll_id', pollRoutes);
 app.use('results/:poll_id', resultRoutes);
-=======
-app.get("/", (req, res) => {
-  //res.render("index");
-  res.render("index");
-});
-
-
-// render page to create new poll
-app.get("/poll", (req, res) => {
-  res.render("create_poll");
-});
-
-// post new poll
-app.post('/poll', (req, res) => {
-
-  res.redirect(`/poll/${poll_id}`)
-  // res.redirect("/poll/:poll_id") poll id to be replaced with poll id from req.session
-});
-
-
-// VOTE ON POLL
-// render page where you submit your vote
-app.get('/vote/:poll_id', (req, res) => {
-
-  const poll_id = req.params.poll_id;
-  console.log(poll_id);
-  const templateVars = { p_id : poll_id }
-  res.render("poll_page", templateVars);
-
-});
-
-// submit vote in poll
-app.post("/vote", (req, res) => {
-  //res.render("index");
-
-  let op1 = req.body.op1;
-  let op2 = req.body.op2;
-  let op3 = req.body.op3;
-  let op4 = req.body.op4;
-
-  console.log(op1)
-  console.log(op2)
-  console.log(op3)
-  console.log(op4)
-
-
-  res.redirect('/results/:poll_id')
-
-});
-
-//Get Poll Results
-app.get('/results/:poll_id', (req, res) => {
-  res.render("results", templateVars)
-});
-
-
-// Edit a poll
-app.get('/poll/:poll_id', (req, res) => {
-  const templateVars = {};
-  res.render('admin_poll', templateVars)
-});
->>>>>>> 34e162bb4f2c9aa769ac2a1a387cfab28acd1cd3
-
-
-//Delete a poll
-app.post("/vote/:poll_id/delete", (req, res) => {
-  res.redirect('/')
-});
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
