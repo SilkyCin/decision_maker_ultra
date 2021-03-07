@@ -47,11 +47,37 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+  //res.render("index");
   res.render("index");
 });
 
 
-app.post("/voted", (req, res) => {
+// render page to create new poll
+app.get("/poll", (req, res) => {
+  res.render("create_poll");
+});
+
+// post new poll
+app.post('/poll', (req, res) => {
+
+  res.redirect(`/poll/${poll_id}`)
+  // res.redirect("/poll/:poll_id") poll id to be replaced with poll id from req.session
+});
+
+
+// VOTE ON POLL
+// render page where you submit your vote
+app.get('/vote/:poll_id', (req, res) => {
+
+  const poll_id = req.params.poll_id;
+  console.log(poll_id);
+  const templateVars = { p_id : poll_id }
+  res.render("poll_page", templateVars);
+
+});
+
+// submit vote in poll
+app.post("/vote", (req, res) => {
   //res.render("index");
 
   let op1 = req.body.op1;
@@ -64,9 +90,29 @@ app.post("/voted", (req, res) => {
   console.log(op3)
   console.log(op4)
 
-   res.send("ok");
+
+  res.redirect('/results/:poll_id')
 
 });
+
+//Get Poll Results
+app.get('/results/:poll_id', (req, res) => {
+  res.render("results", templateVars)
+});
+
+
+// Edit a poll
+app.get('/poll/:poll_id', (req, res) => {
+  const templateVars = {};
+  res.render('admin_poll', templateVars)
+});
+
+
+//Delete a poll
+app.post("/vote/:poll_id/delete", (req, res) => {
+  res.redirect('/')
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
