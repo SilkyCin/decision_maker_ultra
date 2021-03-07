@@ -1,4 +1,4 @@
-\c midterm
+
 
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS votes CASCADE;
@@ -15,7 +15,7 @@ CREATE TABLE users (
 
 CREATE TABLE polls (
   id SERIAL PRIMARY KEY,
-  host INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   title VARCHAR(255),
   description TEXT,
   admin_url VARCHAR(255),
