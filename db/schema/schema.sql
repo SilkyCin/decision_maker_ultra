@@ -1,4 +1,4 @@
-\c midterm
+\c decision_maker
 
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS votes CASCADE;
