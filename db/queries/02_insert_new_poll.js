@@ -2,10 +2,10 @@ const { Pool } = require('pg');
 const dbParams = require('../../lib/db.js');
 const pool = new Pool;
 
-
+//Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
   const queryString = `
-  INSERT INTO polls (title, description)
+  INSERT INTO polls (user_id, title, description)
   VALUES ($1, $2)
   RETURNING *;`;
   const queryParams = [newPoll.title, newPoll.desc]
@@ -17,6 +17,7 @@ const insertNewPoll = (newPoll) => {
 
 }
 
+//
 const updateURLs = () => {
   const queryString = `
   UPDATE polls

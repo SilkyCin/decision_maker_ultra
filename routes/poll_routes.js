@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
   return insertNewPoll(newPoll)
   .then(res => console.log('res',res.rows))
   .catch(er => console.log('ERROR',er))
-  .finally(res.redirect('/poll'))
+  .finally(res.redirect('/poll/:id'))
 });
 
 module.exports = router;
