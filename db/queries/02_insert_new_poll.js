@@ -1,6 +1,5 @@
-const { Pool } = require('pg');
-const dbParams = require('../../lib/db.js');
-const pool = new Pool;
+const db = require('../db')
+
 
 //Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
@@ -10,7 +9,7 @@ const insertNewPoll = (newPoll) => {
   RETURNING *;`;
   const queryParams = [newPoll.title, newPoll.desc]
   console.log(queryString, queryParams);
-  return pool.query(queryString, queryParams)
+  return db.query(queryString, queryParams)
     .then((res) => {
       return res.rows;
     })
@@ -25,7 +24,7 @@ const updateURLs = () => {
   WHERE id = $1
   RETURNING *;`;
   const queryParams = [poll_id]; //Do not have access to this yet
-  return pool.query(queryString, queryParams)
+  return db.query(queryString, queryParams)
     .then((res) => {
    return res.rows;
     })
