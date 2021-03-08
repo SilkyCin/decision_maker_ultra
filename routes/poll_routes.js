@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:poll_id', (req, res) => {
-  res.render('vote_page')
+  res.render('vote_routes')
 });
 
 
@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
   return insertNewPoll(newPoll)
   .then(res => console.log('res',res.rows))
   .catch(er => console.log('ERROR',er))
-  .finally(res.redirect('/poll/:id'))
+  .finally(res.redirect('/poll'))
 });
 
 module.exports = router;
