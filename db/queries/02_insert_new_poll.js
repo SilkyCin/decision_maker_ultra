@@ -1,6 +1,4 @@
-const { Pool } = require('pg');
-const dbParams = require('../../lib/db.js');
-const pool = new Pool;
+const db = require('../db');
 
 //Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
