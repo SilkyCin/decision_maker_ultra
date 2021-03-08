@@ -10,8 +10,7 @@ const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
 
-
-// PG database client/connection setup
+// // PG database client/connection setup
 // const { Pool } = require('pg');
 // const dbParams = require('./lib/db.js');
 // const db = new Pool(dbParams);
@@ -53,7 +52,7 @@ app.use(express.static("public"));
 const homeRoutes = require('./routes/home_routes.js');
 const voteRoutes = require('./routes/vote_routes.js');
 const pollRoutes = require('./routes/poll_routes.js');
-const resultRoutes = require('./routes/result_routes.js')
+const resultRoutes = require('./routes/result_routes.js');
 
 app.use('/', homeRoutes);
 app.use('/vote/:poll_id', voteRoutes);
