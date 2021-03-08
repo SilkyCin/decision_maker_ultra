@@ -1,11 +1,19 @@
+const db = require('../db');
+
 const getPolls = () => {
 
 };
 
-const getPollById = (id) => {
+const getOptionsByPollId = (id) => {
 
 };
 
 const getPollByUserId = (id) => {
 
+};
+
+module.exports = {
+  getPolls,
+  getOptionsByPollId,
+  getPollByUserId
 };

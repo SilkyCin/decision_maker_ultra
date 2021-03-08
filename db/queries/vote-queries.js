@@ -1,7 +1,0 @@
-const getVotesByPollId = () => {
-
-};
-
-const getVotesbyPollUserId = () => {
-
-};
