@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const insertNewPoll = require('../db/queries/02_insert_new_poll.js')
+const { insertNewPoll,
+  updateURLs, insertOptions } = require('../db/queries/02_insert_new_poll.js')
 
 
 router.get('/', (req, res) => {
@@ -17,7 +18,7 @@ router.post('/', (req, res) => {
   return insertNewPoll(newPoll)
   .then(res => console.log('res',res.rows))
   .catch(er => console.log('ERROR',er))
-  .finally(res.redirect('/'))
+  .finally(res.redirect('/poll'))
 });
 
 module.exports = router;
