@@ -10,7 +10,6 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL
 );
 
-
 CREATE TABLE polls (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -19,8 +18,6 @@ CREATE TABLE polls (
   admin_url VARCHAR(255),
   voting_url VARCHAR(255)
 );
-
-
 
 CREATE TABLE options (
   id SERIAL PRIMARY KEY,
