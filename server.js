@@ -52,7 +52,7 @@ app.use(express.static("public"));
 const homeRoutes = require('./routes/home_routes.js');
 const voteRoutes = require('./routes/vote_routes.js');
 const pollRoutes = require('./routes/poll_routes.js');
-const resultRoutes = require('./routes/result_routes.js')
+const resultRoutes = require('./routes/result_routes.js');
 
 app.use('/', homeRoutes);
 app.use('/vote/:poll_id', voteRoutes);

@@ -1,4 +1,5 @@
 const db = require('../db');
+const dbParams = require("../../lib/db");
 
 const getPolls = () => {
 

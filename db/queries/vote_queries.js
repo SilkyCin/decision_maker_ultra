@@ -1,4 +1,5 @@
-const db = require("../../lib/db");
+const db = require('../db');
+const dbParams = require("../../lib/db");
 
 // show what votes each choice in a poll received
 const getVotesByPollId = (id) => {
