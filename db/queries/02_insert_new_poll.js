@@ -12,7 +12,6 @@ const insertNewPoll = (newPoll) => {
     .then((res) => {
       return res.rows;
     })
-
 }
 
 //
@@ -29,8 +28,6 @@ const updateURLs = () => {
     })
 }
 
-
-
 const insertOptions = (newPoll) => {
   const queryString = `INSERT INTO options (poll_id, choice)
   VALUES ($1, $2)`;
@@ -41,9 +38,5 @@ const insertOptions = (newPoll) => {
       return res.rows;
     })
 }
-
-
-
-
 module.exports = { insertNewPoll,
 updateURLs, insertOptions };
