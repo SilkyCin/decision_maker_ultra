@@ -1,5 +1,6 @@
 // load .env data into process.env
 require('dotenv').config();
+
 // Web server config
 const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
@@ -8,7 +9,9 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require('morgan');
+
 app.set("view engine", "ejs");
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
@@ -18,10 +21,12 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+
 const homeRoutes = require('./routes/home_routes.js');
 const voteRoutes = require('./routes/vote_routes.js');
 const pollRoutes = require('./routes/poll_routes.js');
 const resultRoutes = require('./routes/result_routes.js');
+
 app.use('/', homeRoutes);
 app.use('/vote/:poll_id', voteRoutes);
 app.use('/poll', pollRoutes);

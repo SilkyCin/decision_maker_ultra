@@ -1,4 +1,5 @@
 const db = require('../db');
+
 //Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
   const queryString = `
@@ -12,6 +13,7 @@ const insertNewPoll = (newPoll) => {
       return res.rows;
     })
 }
+
 //
 const updateURLs = () => {
   const queryString = `
@@ -25,6 +27,7 @@ const updateURLs = () => {
    return res.rows;
     })
 }
+
 const insertOptions = (newPoll) => {
   const queryString = `INSERT INTO options (poll_id, choice)
   VALUES ($1, $2)`;

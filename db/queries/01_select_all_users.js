@@ -1,4 +1,4 @@
-const dbParams = require("../../lib/db");
+const db = require('../db');
 
 const getAllUsers = () => {
   return dbParams.query('SELECT * FROM users;')
