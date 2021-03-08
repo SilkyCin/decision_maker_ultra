@@ -1,0 +1,7 @@
+const getVotesByPollId = () => {
+
+};
+
+const getVotesbyPollUserId = () => {
+
+};
