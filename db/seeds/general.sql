@@ -18,7 +18,7 @@ INSERT INTO polls (user_id, title, description, admin_url, voting_url) VALUES (2
 
 
 INSERT INTO options (poll_id, choice) VALUES (1, 'blue');
-INSERT INTO options (poll_id, choice) VALUES (1, 'yellow');
+INSERT INTO options (poll_id, choice) VALUES (1, 'red');
 INSERT INTO options (poll_id, choice) VALUES (1, 'green');
 INSERT INTO options (poll_id, choice) VALUES (1,' pink');
 INSERT INTO options (poll_id, choice) VALUES (1, 'purple');
