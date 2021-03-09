@@ -22,7 +22,20 @@
   </form>
   <form action = "/poll/<%= poll_id %>" method = "POST">
 
-    Option 0 <input type="text" name = "op0" id = "option">
+
+
+    <% for (let num = 1; num <= opNum; num++) { %>
+       <label>Option <%= num %></label><input type="text" name = "op<%= num %>" id = "option" />
+    <% } %>
+
+    <input id = "sub" type="submit" value = "submit" />
+  </form>
+
+
+  </body>
+</html>
+
+ <!-- Option 0 <input type="text" name = "op0" id = "option">
     Option 1 <input type="text" name = "op1" id = "option">
     Option 2 <input type="text" name = "op2" id = "option">
     Option 3 <input type="text" name = "op3" id = "option">
@@ -31,11 +44,4 @@
     Option 6 <input type="text" name = "op6" id = "option">
     Option 7 <input type="text" name = "op7" id = "option">
     Option 8 <input type="text" name = "op8" id = "option">
-    Option 9 <input type="text" name = "op9" id = "option">
-
-    <input id = "sub" type="submit" value = "submit" />
-  </form>
-
-
-  </body>
-</html>
+    Option 9 <input type="text" name = "op9" id = "option"> -->
