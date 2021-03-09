@@ -1,4 +1,6 @@
-const db = require('../db');
+const db = require('../db')
+
+
 //Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
   const queryString = `
@@ -7,11 +9,13 @@ const insertNewPoll = (newPoll) => {
   RETURNING *;`;
   const queryParams = [newPoll.title, newPoll.desc]
   console.log(queryString, queryParams);
-  return pool.query(queryString, queryParams)
+  return db.query(queryString, queryParams)
     .then((res) => {
       return res.rows;
     })
+
 }
+
 //
 const updateURLs = () => {
   const queryString = `
@@ -20,11 +24,14 @@ const updateURLs = () => {
   WHERE id = $1
   RETURNING *;`;
   const queryParams = [poll_id]; //Do not have access to this yet
-  return pool.query(queryString, queryParams)
+  return db.query(queryString, queryParams)
     .then((res) => {
    return res.rows;
     })
 }
+
+
+
 const insertOptions = (newPoll) => {
   const queryString = `INSERT INTO options (poll_id, choice)
   VALUES ($1, $2)`;
@@ -35,5 +42,9 @@ const insertOptions = (newPoll) => {
       return res.rows;
     })
 }
+
+
+
+
 module.exports = { insertNewPoll,
 updateURLs, insertOptions };
