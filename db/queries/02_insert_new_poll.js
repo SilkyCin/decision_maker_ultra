@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 const db = require('../db')
 
+=======
+const db = require('../db');
+>>>>>>> 51b6cb5ef9f608f805b64a09908c8c2e3a31119b
 
 //Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
@@ -30,8 +34,11 @@ const updateURLs = () => {
     })
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 51b6cb5ef9f608f805b64a09908c8c2e3a31119b
 const insertOptions = (newPoll) => {
   const queryString = `INSERT INTO options (poll_id, choice)
   VALUES ($1, $2)`;
