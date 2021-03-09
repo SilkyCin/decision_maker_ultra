@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 const { insertNewPoll,
-  updateURLs, insertOptions } = require('../db/queries/02_insert_new_poll.js')
+  updateURLs, insertOptions } = require('../db/queries/insert_new_poll.js')
 
 
 router.get('/', (req, res) => {
@@ -10,9 +10,10 @@ router.get('/', (req, res) => {
 
 //Renders admin_poll page where the user enters their options
 router.get('/:poll_id', (req, res) => {
+  console.log('!!!!!!!!!!Req.params!!!!!!!!!!',req.params)
+  const templateVars = {poll_id: req.params.poll_id}
   return updateURLs(req.params)
-  .then(id => console.log(id))
-  .then(res.render('admin_poll'))
+  .then(res.render('admin_poll', templateVars))
   .catch(er => console.log('ERROR',er))
 });
 
@@ -27,21 +28,19 @@ router.post('/', (req, res) => {
 //Posts the entered options
 router.post('/:poll_id', (req, res) => {
   const options = req.body;
+  const pollID = Number(req.params.poll_id);
 
-  for (let i = 1; i < 10; i++) {
-    console.log("Hi:",req.params)
+  for (let i = 0; i <= 10; i++) {
     const op = `op${i}`;
     if (options[op]) {
-      console.log("True", options[op]);
-      return insertOptions(options[op], req.params)
-      .then(x => console.log("Inserted Option:", x))
+      insertOptions(options[op], pollID)
       .catch(e => console.log(e))
     }
     if (!options[op]) {
-      console.log("False", options[op]);
-      // return insertOptions(options[op])
+
     }
   }
+  res.redirect(`/vote/${pollID}` )
 });
 
 

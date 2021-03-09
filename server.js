@@ -30,7 +30,7 @@ const resultRoutes = require('./routes/result_routes.js');
 app.use('/', homeRoutes);
 app.use('/vote/:poll_id', voteRoutes);
 app.use('/poll', pollRoutes);
-app.use('/poll/:poll_id', pollRoutes);
+// app.use('/poll/:poll_id', pollRoutes);
 app.use('results/:poll_id', resultRoutes);
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

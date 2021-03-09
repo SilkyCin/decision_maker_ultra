@@ -10,7 +10,7 @@ const insertNewPoll = (newPoll) => {
   return db.query(queryString, queryParams)
   .then((res) => {
       return res.rows;
-    })
+  })
   .catch(er => console.log('ERROR',er));
 };
 
@@ -25,6 +25,7 @@ const updateURLs = (req) => {
   .then((res) => {
     return res.rows;
   })
+  .catch(e => console.log(e))
 }
 
 //Inserts options one at a time into the options table

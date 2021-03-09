@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
       console.error(e);
       res.send(e);
     });
-  res.render('/results/:poll_id');
+  res.render('vote_page');
 });
 
 
