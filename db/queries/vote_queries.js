@@ -33,6 +33,15 @@ const getResultsByPollId = (id) => {
     });
 };
 
+//TO BE DONE. INSERTING DATA INTO DATABASE
+const storeResultsByPollId = (id) => {
+  return db.query(``
+  , [id])
+    .then((response) => {
+      return response.rows[0];
+    });
+};
+
 // (stretch) show the results of all polls created by one user
 const getAllPollResultsbyUserId = () => {
 
