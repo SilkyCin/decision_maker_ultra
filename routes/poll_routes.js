@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
 
 //Renders admin_poll page where the user enters their options
 router.get('/:poll_id', (req, res) => {
-  console.log('!!!!!!!!!!Req.params!!!!!!!!!!',req.params)
   const templateVars = {poll_id: req.params.poll_id}
   return updateURLs(req.params)
   .then(res.render('admin_poll', templateVars))
