@@ -23,12 +23,11 @@ INSERT INTO options (poll_id, choice) VALUES (1, 'green');
 INSERT INTO options (poll_id, choice) VALUES (1,' pink');
 INSERT INTO options (poll_id, choice) VALUES (1, 'purple');
 INSERT INTO options (poll_id, choice) VALUES (1, 'orange');
-INSERT INTO options (poll_id, choice) VALUES (1, 'yellow');
+INSERT INTO options (poll_id, choice) VALUES (1, 'red');
 
 INSERT INTO options (poll_id, choice) VALUES (2, 'dog');
 INSERT INTO options (poll_id, choice) VALUES (2, 'cat');
 INSERT INTO options (poll_id, choice) VALUES (2, 'mouse');
-INSERT INTO options (poll_id, choice) VALUES (2, 'moose');
 INSERT INTO options (poll_id, choice) VALUES (2, 'bear');
 
 INSERT INTO options (poll_id, choice) VALUES (3, 'Clinton');

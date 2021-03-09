@@ -24,7 +24,7 @@ const getResultsByPollId = (id) => {
     FROM votes AS v INNER JOIN polls AS p
     ON p.id = v.poll_id INNER JOIN options AS o
     ON v.option_id = o.id
-    WHERE v.poll_id = $1
+    WHERE v.poll_id = 1
     GROUP BY o.choice
     ORDER BY SUM(v.priority)
     LIMIT 1;`
