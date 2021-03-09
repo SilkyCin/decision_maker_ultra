@@ -3,40 +3,43 @@ const db = require('../db');
 //Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
   const queryString = `
-  INSERT INTO polls (user_id, title, description)
+  INSERT INTO polls (title, description)
   VALUES ($1, $2)
   RETURNING *;`;
   const queryParams = [newPoll.title, newPoll.desc]
-  console.log(queryString, queryParams);
-  return pool.query(queryString, queryParams)
-    .then((res) => {
+  return db.query(queryString, queryParams)
+  .then((res) => {
       return res.rows;
     })
-}
+  .catch(er => console.log('ERROR',er));
+};
 
-//
-const updateURLs = () => {
+//Inserts the admin_url and voting_url
+const updateURLs = (req) => {
   const queryString = `
   UPDATE polls
-  SET admin_url = '/poll/$1', voting_url = '/vote/$1'
-  WHERE id = $1
+  SET admin_url = '/poll/${req.poll_id}', voting_url = '/poll/${req.poll_id}/vote'
+  WHERE id = ${req.poll_id}
   RETURNING *;`;
-  const queryParams = [poll_id]; //Do not have access to this yet
-  return pool.query(queryString, queryParams)
-    .then((res) => {
-   return res.rows;
-    })
+  return db.query(queryString)
+  .then((res) => {
+    return res.rows;
+  })
 }
 
-const insertOptions = (newPoll) => {
+const insertOptions = (op, req) => {
   const queryString = `INSERT INTO options (poll_id, choice)
   VALUES ($1, $2)`;
-  const queryParams = [newPoll.poll_id, newPoll.choice];
-  return pool.query(queryString, queryParams)
-    .then((res) => {
-      // console.log(res.rows)
-      return res.rows;
-    })
+  const queryParams = [req, op];
+  return db.query(queryString, queryParams)
+  .then((res) => {
+    // console.log(res.rows)
+    return res.rows;
+  })
 }
-module.exports = { insertNewPoll,
-updateURLs, insertOptions };
+
+module.exports = {
+  insertNewPoll,
+  updateURLs,
+  insertOptions
+};
