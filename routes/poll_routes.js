@@ -14,13 +14,13 @@ router.get('/:u_id', (req, res) => {
   // const templateVars = { urls: urlsByUser, user: userObj };
   // res.render("index", templateVars);
  // console.log(req.params.u_id);
-  let userObj;
+
   return getUser(req.params.u_id)
   .then((resp) => {
-    //console.log("lplplplpl");
+    console.log("lplplplpl");
     console.log(resp);
-    userObj = {resp};
-    const templateVars = {user : userObj};
+    console.log(resp['email']);
+    const templateVars = {user : resp};
     res.render('create_poll', templateVars);
 
   })

@@ -32,6 +32,7 @@ router.get("/", (req, res) => {
   // res.render("index", templateVars);
 });
 
+//endpoint to allow users to create a user profile
 router.post('/', (req, res) => {
 
   //res.redirect('/poll');
@@ -47,6 +48,14 @@ router.post('/', (req, res) => {
   })
   .catch(er => console.log('ERROR',er))
 
-})
+});
+
+//endpoint for allowing users to log out of their accounts
+router.post('/logout', (req, res) => {
+  req.session = null;
+  res.redirect('/');
+});
+
+
 
 module.exports = router;
