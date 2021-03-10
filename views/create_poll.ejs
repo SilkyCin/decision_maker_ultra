@@ -18,14 +18,19 @@
   </head>
 
   <body>
-    <h1>Create a new poll!</h1>
+    <h1>Create a new poll</h1>
     <form action = "/poll" method = "POST">
 
-      Title<input type="text" name = "title" id = "title" >
-      Description<input type="text" name = "desc" id = "desc" >
-      Number of options<input type="number" name = "nums" />
+     <label for = "title">Title</label>
+     <input type="text" name = "title" id = "title" />
 
-      <input id = "sub" type="submit" value = "submit" />
+     <label for = "desc">Description</label>
+     <input type="text" name = "desc" id = "desc" />
+
+     <label for = "nums">Number of options</label>
+     <input type="number" name = "nums" id = "nums" />
+
+     <input id = "sub" type="submit" value = "submit" />
 
 
   </body>
