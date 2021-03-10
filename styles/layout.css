@@ -1,9 +1,9 @@
 body {
-  background-color: #eee;
+  background-color: white;
 }
 
 body h1 {
-  color: white;
+  color: black;
 }
 
 body #mainStuff {
@@ -15,7 +15,26 @@ body #mainStuff {
           justify-content: center;
 }
 
-.navbar {
+body .create-poll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0A1128;
+  font-weight: 750;
+}
+
+body .create-poll #sub {
+  background-color: #A35F00;
+}
+
+.navbar, .navbar #logo, .navbar #create {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,11 +47,13 @@ body #mainStuff {
           justify-content: space-between;
   background-color: #001F54;
   color: white;
-  font-weight: 300;
 }
 
-.navbar-logo {
-  color: white;
+.navbar #logo {
   font-weight: 1000;
+}
+
+.navbar #create {
+  font-weight: 300;
 }
 /*# sourceMappingURL=layout.css.map */

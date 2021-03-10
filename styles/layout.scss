@@ -3,18 +3,29 @@
 $text-color: #0A1128;
 $headertext-color: #1282A2;
 $nav-color: #001F54;
+$btn-color: #A35F00;
 
 
 body {
-  background-color: #eee;
+  background-color: white;
 
   h1 {
-    color: white;
+    color: rgb(0, 0, 0);
   };
   #mainStuff {
     display: flex;
     justify-content: center;
   };
+  .create-poll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $text-color;
+    font-weight: 750;
+    #sub {
+      background-color: $btn-color;
+    }
+  }
 }
 
 .navbar {
@@ -23,12 +34,15 @@ body {
   justify-content: space-between;
   background-color: $nav-color;
   color: white;
-  font-weight: 300;
+  #logo {
+    @extend .navbar;
+    font-weight: 1000;
+  }
+  #create {
+    @extend .navbar;
+    font-weight: 300;
+  }
 }
 
-.navbar-logo {
-  color: white;
-  font-weight: 1000;
-}
 
 
