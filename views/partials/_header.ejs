@@ -1,6 +1,7 @@
 <header>
 
   <nav class="navbar navbar-expand-md navbar-dark bg-success">
+    <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
     <!-- <a class="navbar-brand" href="/">Decision Maker</a> -->
     <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,24 +15,34 @@
 
       </div>
     </div> -->
-    <div>
-      <a class="nav-item nav-link" href="/">Create new poll</a>
-    </div>
+
     <% if (user === undefined || !user) { %>
-
-      <div>
-        <a href="/" class="btn btn-primary">Login</a>
+      <div id = "crPoll">
+        <a class="nav-item nav-link" href= "/poll" >Create new poll</a>
       </div>
+
+      <div id = "logInOut">
+
+        <a href="/login" class="btn btn-primary">Login</a>
+
+      </div>
+
     <% } else { %>
+      <div id = "crPoll">
+        <a class="nav-item nav-link" href="/poll/<%= user['id'] %>">Create new poll</a>
+      </div>
+       <div id = "logInOut">
+          <form action  = "/logout" method = "POST">
 
-        <form action  = "/logout" method = "POST">
-          <label for = "logout">Signed in as: <%= user['email'] %></label>
+            <label for = "logout">Signed in as: <%= user['email'] %></label>
+            <input type="submit" value="Logout" name = "logout" class="btn btn-danger"/>
 
-          <input type="submit" value="Logout" name = "logout" class="btn btn-danger"/>
-        </form>
+          </form>
+       </div>
     <% } %>
 
   </nav>
 
 
 </header>
+<link rel="stylesheet" href="/styles/layout.css" type="text/css" />

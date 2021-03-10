@@ -29,14 +29,17 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 const homeRoutes = require('./routes/home_routes.js');
-const voteRoutes = require('./routes/vote_routes.js');
 const pollRoutes = require('./routes/poll_routes.js');
+const adminRoutes = require('./routes/admin_routes.js');
+const voteRoutes = require('./routes/vote_routes.js');
 const resultRoutes = require('./routes/result_routes.js');
 
 app.use('/', homeRoutes);
-app.use('/vote', voteRoutes);
 app.use('/poll', pollRoutes);
-app.use('results/:poll_id', resultRoutes);
+app.use('/admin', adminRoutes);
+app.use('/vote', voteRoutes);
+app.use('/results', resultRoutes);
+//app.use('results/:poll_id', resultRoutes);
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
