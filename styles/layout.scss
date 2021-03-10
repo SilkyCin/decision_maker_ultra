@@ -1,13 +1,34 @@
 // See: https://sass-lang.com/
 
+$text-color: #0A1128;
+$headertext-color: #1282A2;
+$nav-color: #001F54;
+
+
 body {
   background-color: #eee;
 
   h1 {
-    color: #244751;
-  }
+    color: white;
+  };
   #mainStuff {
     display: flex;
     justify-content: center;
-  }
+  };
 }
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $nav-color;
+  color: white;
+  font-weight: 300;
+}
+
+.navbar-logo {
+  color: white;
+  font-weight: 1000;
+}
+
+
