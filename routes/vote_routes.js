@@ -20,13 +20,6 @@ router.get('/:poll_id', (req, res) => {
 
 });
 
-router.post('/:poll_id', (req, res) => {
-  console.log(req.body)
-  storeResultsByPollId(req.params.poll_id, req.body)
-    .then((ins) => {})
-}
-
-
 //get results from a vote
 router.get('/:poll_id/results', (req, res) => {
   getResultsByPollId(req.params.poll_id)
@@ -53,5 +46,13 @@ router.get('/:poll_id/results', (req, res) => {
       res.send(e);
     });
 });
+
+router.post('/:poll_id', (req, res) => {
+  console.log(req.body)
+  storeResultsByPollId(req.params.poll_id, req.body)
+    .then((ins) => {});
+});
+
+
 
 module.exports = router;
