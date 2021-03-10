@@ -20,17 +20,16 @@ const getVotesByPollId = (id) => {
 // this is where we will need to calculate results using the Borda Count method
 const getResultsByPollId = (id) => {
   return db.query(`
-    SELECT o.choice, sum(v.priority)
-    FROM votes AS v INNER JOIN polls AS p
-    ON p.id = v.poll_id INNER JOIN options AS o
-    ON v.option_id = o.id
-    WHERE v.poll_id = $1
-    GROUP BY o.choice
-    ORDER BY SUM(v.priority)
-    LIMIT 1;`
+  SELECT choice, sum((select count(choice) from options where poll_id = $1) - priority) as total_points
+  FROM votes
+  JOIN polls on votes.poll_id = polls.id
+  JOIN options on option_id = options.id
+  WHERE votes.poll_id = $1
+  GROUP BY choice
+  ORDER BY total_points;`
   , [id])
     .then((response) => {
-      return response.rows[0];
+      return response.rows;
     });
 };
 

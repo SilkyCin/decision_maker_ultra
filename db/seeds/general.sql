@@ -11,9 +11,9 @@ INSERT INTO users (name, email) VALUES ('Jessica', 'jess@google.com');
 
 
 
-INSERT INTO polls (user_id, title, description, admin_url, voting_url) VALUES (1, 'colors poll', 'poll about colors', 'hello', 'jajaja');
-INSERT INTO polls (user_id, title, description, admin_url, voting_url) VALUES (3, 'animals poll', 'poll about animals', 'jellosadsasd', 'hajaja');
-INSERT INTO polls (user_id, title, description, admin_url, voting_url) VALUES (2, 'presidents poll', 'poll about pres', 'sellds', 'dajaja');
+INSERT INTO polls (user_id, title, description, admin_url, voting_url, numops) VALUES (1, 'colors poll', 'poll about colors', 'hello', 'jajaja', 7);
+INSERT INTO polls (user_id, title, description, admin_url, voting_url, numops) VALUES (3, 'animals poll', 'poll about animals', 'jellosadsasd', 'hajaja', 4);
+INSERT INTO polls (user_id, title, description, admin_url, voting_url, numops) VALUES (2, 'presidents poll', 'poll about pres', 'sellds', 'dajaja', 7);
 
 
 
@@ -23,12 +23,11 @@ INSERT INTO options (poll_id, choice) VALUES (1, 'green');
 INSERT INTO options (poll_id, choice) VALUES (1,' pink');
 INSERT INTO options (poll_id, choice) VALUES (1, 'purple');
 INSERT INTO options (poll_id, choice) VALUES (1, 'orange');
-INSERT INTO options (poll_id, choice) VALUES (1, 'yellow');
+INSERT INTO options (poll_id, choice) VALUES (1, 'red');
 
 INSERT INTO options (poll_id, choice) VALUES (2, 'dog');
 INSERT INTO options (poll_id, choice) VALUES (2, 'cat');
 INSERT INTO options (poll_id, choice) VALUES (2, 'mouse');
-INSERT INTO options (poll_id, choice) VALUES (2, 'moose');
 INSERT INTO options (poll_id, choice) VALUES (2, 'bear');
 
 INSERT INTO options (poll_id, choice) VALUES (3, 'Clinton');
