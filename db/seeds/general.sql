@@ -101,45 +101,45 @@ INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (2, 5, 5, 'J
 /****************************************************************************************/
 /****************************************************************************************/
 
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 1, 7, 'amy');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 2, 5, 'amy');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 3, 3, 'amy');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 4, 2, 'amy');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 5, 6, 'amy');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 6, 4, 'amy');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 7, 1, 'amy');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 12, 7, 'amy');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 13, 5, 'amy');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 14, 3, 'amy');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 15, 2, 'amy');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 16, 6, 'amy');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 17, 4, 'amy');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 18, 1, 'amy');
 
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 1, 1, 'carl');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 2, 2, 'carl');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 3, 3, 'carl');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 4, 4, 'carl');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 5, 5, 'carl');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 6, 6, 'carl');
-INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 7, 7, 'carl');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 12, 1, 'carl');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 13, 2, 'carl');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 14, 3, 'carl');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 15, 4, 'carl');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 16, 5, 'carl');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 17, 6, 'carl');
+INSERT INTO votes (poll_id, option_id, priority, guest_name) VALUES (3, 18, 7, 'carl');
 
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 1, 7);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 2, 6);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 3, 5);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 4, 4);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 5, 3);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 6, 2);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 7, 1);
-
-
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 1, 3);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 2, 2);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 3, 1);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 4, 4);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 5, 5);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 6, 6);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 7, 7);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 12, 7);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 13, 6);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 14, 5);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 15, 4);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 16, 3);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 17, 2);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 18, 1);
 
 
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 12, 3);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 13, 2);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 14, 1);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 15, 4);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 16, 5);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 17, 6);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 18, 7);
 
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 1, 7);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 2, 6);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 3, 5);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 4, 4);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 5, 3);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 6, 2);
-INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 7, 1);
+
+
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 12, 7);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 13, 6);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 14, 5);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 15, 4);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 16, 3);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 17, 2);
+INSERT INTO votes (poll_id, option_id, priority) VALUES (3, 18, 1);

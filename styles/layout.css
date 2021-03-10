@@ -1,0 +1,17 @@
+body {
+  background-color: #eee;
+}
+
+body h1 {
+  color: #244751;
+}
+
+body #mainStuff {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=layout.css.map */

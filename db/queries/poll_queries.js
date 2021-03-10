@@ -20,6 +20,7 @@ const getPollByUserId = (id) => {
 
 };
 
+
 module.exports = {
   getPolls,
   getOptionsByPollId,

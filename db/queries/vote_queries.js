@@ -18,20 +18,21 @@ const getVotesByPollId = (id) => {
 // show the results of one poll
 // ************this function is incomplete************
 // this is where we will need to calculate results using the Borda Count method
-const getResultsByPollId = (id) => {
+const getResultsByPollId = (pollID) => {
+  const id = Number(pollID);
   return db.query(`
-  SELECT choice, sum((select count(choice) from options where poll_id = $1) - priority) as total_points
+  SELECT choice, sum((select count(choice) from options where poll_id = $1)-priority) as points_per_choice
   FROM votes
-  JOIN polls on votes.poll_id = polls.id
-  JOIN options on option_id = options.id
-  WHERE votes.poll_id = $1
+  JOIN options on options.id = votes.option_id
+  WHERE options.poll_id = $1
   GROUP BY choice
-  ORDER BY total_points;`
-  , [id])
-    .then((response) => {
-      return response.rows;
-    });
+  order by points_per_choice DESC;
+`, [id])
+  .then((response) => {
+    return response.rows;
+  });
 };
+
 
 //TO BE DONE. INSERTING DATA INTO DATABASE
 const storeResultsByPollId = (id) => {
