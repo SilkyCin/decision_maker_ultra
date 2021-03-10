@@ -11,6 +11,14 @@ body {
 
   h1 {
     color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+  };
+  h4 {
+    color: rgb(0, 0, 0);
+    font-weight: 750;
+    margin-left: 4em;
+
   };
   #mainStuff {
     display: flex;
@@ -19,13 +27,40 @@ body {
   .create-poll {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: align-left;
     color: $text-color;
-    font-weight: 750;
+
+    margin-top: .5em;
+    margin-bottom: .75em;
+    margin-left: 5em;
+    margin-right: 5em;
+
+    #title {
+      @extend .create-poll;
+    };
+    #desc {
+      @extend .create-poll;
+      padding-top: 5em;
+      margin-bottom: .75em;
+      margin-left: 5em;
+      margin-right: 5em;
+    };
+    #nums {
+      @extend .create-poll;
+    };
     #sub {
+      @extend .create-poll;
+      display: flex;
+      align-items: center;
       background-color: $btn-color;
+      color: white;
+      margin-left: 20em;
+      margin-right: 20em;
+    };
+    #sub:hover{
+      background-color: $nav-color;
     }
-  }
+  };
 }
 
 .navbar {
