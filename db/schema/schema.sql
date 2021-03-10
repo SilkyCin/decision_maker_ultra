@@ -16,7 +16,8 @@ CREATE TABLE polls (
   title VARCHAR(255),
   description TEXT,
   admin_url VARCHAR(255),
-  voting_url VARCHAR(255)
+  voting_url VARCHAR(255),
+  numops INTEGER
 );
 
 CREATE TABLE options (
