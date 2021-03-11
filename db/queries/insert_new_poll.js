@@ -1,4 +1,5 @@
 const db = require('../db');
+
 //Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
   const queryString = `
@@ -12,6 +13,7 @@ const insertNewPoll = (newPoll) => {
   })
   .catch(er => console.log('ERROR',er));
 };
+
 //Inserts the admin_url and voting_url
 const updateURLs = (req) => {
   const queryString = `
@@ -26,6 +28,7 @@ const updateURLs = (req) => {
   })
   .catch(e => console.log(e))
 }
+
 //Inserts options one at a time into the options table
 const insertOptions = (data) => {
   const queryString = `INSERT INTO options (poll_id, choice)
@@ -35,6 +38,7 @@ const insertOptions = (data) => {
   return db.query(queryString, queryParams)
   .catch(e => console.log(e));
 }
+
 module.exports = {
   insertNewPoll,
   updateURLs,

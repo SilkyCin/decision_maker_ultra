@@ -1,17 +1,86 @@
 // See: https://sass-lang.com/
 
-body {
-  background-color: #eee;
+$text-color: #0a1128;
+$headertext-color: #1282a2;
+$nav-color: #001f54;
+$btn-color: #a35f00;
+$btn-hov: #663c00;
 
+body {
+  background-color: white;
   h1 {
-    color: #244751;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+  }
+  h4 {
+    color: rgb(0, 0, 0);
+    font-weight: 750;
+    align-self: center;
   }
   #mainStuff {
     display: flex;
     justify-content: center;
   }
+  .create-poll {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    color: $text-color;
+    // width: 75%;
+    // margin-top: .5em;
+    // margin-bottom: .75em;
+    margin-left: 10em;
+    margin-right: 10em;
+
+    #title {
+      @extend .create-poll;
+      align-self: center;
+      width: 33%;
+    }
+    #desc {
+      @extend .create-poll;
+      padding-bottom: 5em;
+    }
+    #nums {
+      @extend .create-poll;
+      width: 5em;
+      margin-bottom: 1.5em;
+      align-self: center;
+    }
+    #sub {
+      @extend .create-poll;
+      display: flex;
+      align-items: center;
+      align-self: center;
+      background-color: $btn-color;
+      color: white;
+      width: 5em;
+      border-color: $btn-hov;
+    }
+    #sub:hover {
+      background-color: $btn-hov;
+    }
+  }
 }
 
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $nav-color;
+  color: white;
+  #logo {
+    @extend .navbar;
+    font-weight: 1000;
+  }
+  #create {
+    @extend .navbar;
+    font-weight: 300;
+  }
+}
+
+// center alignment for nav bar
 header {
   nav {
     display: flex;

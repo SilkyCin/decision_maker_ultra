@@ -1,0 +1,105 @@
+body {
+  background-color: white;
+}
+
+body h1 {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body h4 {
+  color: black;
+  font-weight: 750;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+body #mainStuff {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .create-poll, body .create-poll #title, body .create-poll #desc, body .create-poll #nums, body .create-poll #sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #0A1128;
+  margin-left: 10em;
+  margin-right: 10em;
+}
+
+body .create-poll #title {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 33%;
+}
+
+body .create-poll #desc {
+  padding-bottom: 5em;
+}
+
+body .create-poll #nums {
+  width: 5em;
+  margin-bottom: 1.5em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+body .create-poll #sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  background-color: #A35F00;
+  color: white;
+  width: 5em;
+  border-color: #663C00;
+}
+
+body .create-poll #sub:hover {
+  background-color: #663C00;
+}
+
+.navbar, .navbar #logo, .navbar #create {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #001F54;
+  color: white;
+}
+
+.navbar #logo {
+  font-weight: 1000;
+}
+
+.navbar #create {
+  font-weight: 300;
+}
+/*# sourceMappingURL=layout.css.map */

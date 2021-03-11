@@ -21,16 +21,30 @@
     <h1>Create a new poll</h1>
     <form action = "/poll/<%= user['id'] %>" method = "POST">
 
-     <label for = "title">Title</label>
-     <input type="text" name = "title" id = "title" />
+      <label for = "title">Title</label>
+      <input type="text" name = "title" id = "title" />
 
-     <label for = "desc">Description</label>
-     <input type="text" name = "desc" id = "desc" />
+      <label for = "desc">Description</label>
+      <input type="text" name = "desc" id = "desc" />
 
-     <label for = "nums">Number of options</label>
-     <input type="number" name = "nums" id = "nums" />
+      <label for = "nums">Number of options</label>
+      <input type="number" name = "nums" id = "nums" />
 
-     <input id = "sub" type="submit" value = "submit" />
+      <input id = "sub" type="submit" value = "submit" />
+    </form>
+
+    <!-- to be looked at by rye later -->
+    <h1>Create a new poll!</h1>
+    <hr>
+    <form class="create-poll" action = "/poll" method = "POST">
+
+
+      <h4>Title</h4><input type="text" name = "title" id = "title" >
+      <h4>Description</h4><input type="text" name = "desc" id = "desc" >
+      <h4>Number of options</h4><input type="number" name = "nums" id="nums" />
+
+      <input type="submit" value="Submit" name = "submit" class="btn btn-danger" id="sub"/>
+    </form>
 
 
   </body>

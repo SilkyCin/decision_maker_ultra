@@ -4,6 +4,7 @@ const getPolls = () => {
 
 };
 
+
 //gets options for the poll specified by poll id
 const getOptionsByPollId = (req) => {
   return db.query(`
@@ -16,6 +17,8 @@ const getOptionsByPollId = (req) => {
     return response.rows;
   });
 };
+
+
 
 const updatePollOptionsById = (id, choice) => {
   return db.query(`
@@ -43,9 +46,21 @@ const updatePollById = (p, req) => {
 
 };
 
+//gets options for the poll specified by poll id
+const displayOptionsByPollId = (req) => {
+  return db.query(`
+  SELECT * FROM options
+  WHERE poll_id = $1;`
+, [req.poll_id])
+  .then((response) => {
+    return response.rows;
+  });
+};
+
 module.exports = {
   getPolls,
   getOptionsByPollId,
   updatePollOptionsById,
-  updatePollById
+  updatePollById,
+  displayOptionsByPollId
 };

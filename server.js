@@ -40,6 +40,7 @@ app.use('/admin', adminRoutes);
 app.use('/vote', voteRoutes);
 app.use('/results', resultRoutes);
 //app.use('results/:poll_id', resultRoutes);
+app.use('/vote/:poll_id/results', resultRoutes);
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
