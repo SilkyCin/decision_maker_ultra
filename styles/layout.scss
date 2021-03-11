@@ -3,6 +3,7 @@
 $dark-blue: #0A1128;
 $headertext-color: #1282A2;
 $yellow: #FF9E00;
+$btn-color: #FF9E00;
 $btn-hov: #663C00;
 $font-size: 16px;
 $rank-font-size: 20px;
@@ -16,15 +17,13 @@ $bg-clr: #FFF7EB;
 body {
   background-color: $bg-clr;
   font-size: $font-size;
-  color: $text-color;
+  color: $dark-blue;
+  align-items: center;
   padding-top: 90px;
-  .add-space {
-    margin-top: 120px;
-  }
 
 }
 h1 {
-  color: $text-color;
+  color: $dark-blue;
   display: flex;
   justify-content: center;
 
@@ -37,7 +36,7 @@ h3 {
 }
 label {
   @extend .inputContainer;
-  color: $text-color;
+  color: $dark-blue;
   font-size: $font-size;
   align-self: center;
   margin-top: 20px;
@@ -68,7 +67,7 @@ input {
   display: flex;
   flex-direction: column;
   align-self: center;
-  color: $text-color;
+  color: $dark-blue;
   margin-top: 10px;
   margin-bottom: 40px;
   margin-left: 250px;
@@ -114,22 +113,22 @@ input {
   }
 
     #title {
-      @extend .create-poll;
+      @extend .mainContainer;
       align-self: center;
       width: 33%;
     }
     #desc {
-      @extend .create-poll;
+      @extend .mainContainer;
       padding-bottom: 5em;
     }
     #nums {
-      @extend .create-poll;
+      @extend .mainContainer;
       width: 5em;
       margin-bottom: 1.5em;
       align-self: center;
     }
     #sub {
-      @extend .create-poll;
+      @extend .mainContainer;
       display: flex;
       align-items: center;
       align-self: center;
