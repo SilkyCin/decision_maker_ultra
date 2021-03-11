@@ -1,38 +1,29 @@
 <header>
-  <nav class="navbar">
-    <!-- <a id="logo" href="/urls">Decision Maker</a> -->
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
 
+  <nav>
+    <p id="logo">DECISION MAKER Ultra</p>
+    <div id = "crPoll">
+      <a class="nav-item nav-link" href= "/poll" >Create new poll</a>
+    </div>
 
     <% if (user === undefined || !user) { %>
-      <div id = "crPoll">
-        <a class="nav-item nav-link" href= "/poll" >Create new poll</a>
-      </div>
 
       <div id = "logInOut">
-
         <a href="/login" class="btn btn-primary">Login</a>
-
       </div>
 
     <% } else { %>
-      <div id = "crPoll">
-        <a class="nav-item nav-link" href="/poll/<%= user['id'] %>">Create new poll</a>
+
+      <div id = "logInOut">
+        <form action  = "/logout" method = "POST">
+
+          <label for = "logout">Signed in as: <%= user['email'] %></label>
+          <input type="submit" value="Logout" name = "logout" class="btn btn-danger"/>
+
+        </form>
       </div>
-       <div id = "logInOut">
-          <form action  = "/logout" method = "POST">
 
-            <label for = "logout">Signed in as: <%= user['email'] %></label>
-            <input type="submit" value="Logout" name = "logout" class="btn btn-danger"/>
-
-          </form>
-       </div>
     <% } %>
-
   </nav>
 
-
 </header>
-<link rel="stylesheet" href="/styles/layout.css" type="text/css" />

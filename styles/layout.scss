@@ -1,42 +1,21 @@
 // See: https://sass-lang.com/
 
-$text-color: #0A1128;
+$dark-blue: #0A1128;
 $headertext-color: #1282A2;
-$nav-color: #001F54;
-$btn-color: #A35F00;
+$yellow: #FF9E00;
 $btn-hov: #663C00;
 $font-size: 16px;
 
-
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  height: 80px;
-  position: fixed; //fixes navbar
-  top: 0; // sets position to 0
-  padding: 10px;
-  z-index: 2; // fixes navabr over other items
-  background-color: $nav-color;
-  color: white;
-  #logo {
-    @extend .navbar;
-    font-weight: 1000;
-  }
-  #create {
-    @extend .navbar;
-    font-weight: 300;
-  }
-}
+@import "./_navbar.scss";
+@import "./_table.scss";
 
 body {
-  padding-top: 90px;
   background-color: white;
   font-size: $font-size;
-  color: $text-color;
+  color: $dark-blue;
+  align-items: center;
 
-  h1 {
+  h1, h2 {
     color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
@@ -53,11 +32,7 @@ body {
   .create-poll {
     display: flex;
     flex-direction: column;
-    // align-items: center;
-    color: $text-color;
-    // width: 75%;
-    // margin-top: .5em;
-    // margin-bottom: .75em;
+    color: $dark-blue;
     margin-left: 10em;
     margin-right: 10em;
 
@@ -81,44 +56,16 @@ body {
       display: flex;
       align-items: center;
       align-self: center;
-      background-color: $btn-color;
+      background-color: $yellow;
       color: white;
       width: 5em;
       border-color: $btn-hov;
-    }
-    #sub:hover {
+      &:hover {
       background-color: $btn-hov;
+      }
     }
   }
 }
-
-// styles for results page
-.results-table {
-  border-collapse: collapse;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 15px;
-  &:hover {
-    border-radius: 15px;
-    box-shadow: 15px 15px 15px #7e7d7b;
-  }
-};
-
-th {
-  font-size: 20px;
-  padding: 8px;
-  text-align: center;
-  border-bottom: 1px solid rgb(221, 221, 221);
-}
-
-td {
-  padding: 8px;
-  text-align: center;
-  border-top: 1px solid rgb(221, 221, 221);
-};
-
-tr:hover {background-color:#dedfe4;}
 
 .image {
   display: block;
@@ -134,11 +81,47 @@ footer {
   margin-bottom: 100px;
 }
 
-// center alignment for nav bar
-header {
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.login-fields {
+  padding: 5px;
+}
+
+input {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color:$dark-blue;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+input[type=text]:focus {
+  background-color: $dark-blue;
+  // border-color: $yellow;
+  color: white;
+  outline: none
+}
+input[type=email]:focus {
+  @extend input[type=text];
+}
+
+.btn-primary {
+  background-color: $yellow;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
 }
