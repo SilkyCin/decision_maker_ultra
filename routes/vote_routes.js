@@ -65,11 +65,20 @@ router.get('/:poll_id/results', (req, res) => {
     });
 });
 
-
+//Loops through votes and sends promise for each vote
 router.post('/:poll_id', (req, res) => {
-  console.log(req.body)
-  storeResultsByPollId(req.params.poll_id, req.body)
-    .then((ins) => {});
+  let votes = req.body;
+  const id = Number(req.params.poll_id);
+  for (let optionID in votes) {
+    const pri = Number(votes[optionID])
+    optionID = Number(optionID);
+    if (!isNaN(optionID) && !isNaN(pri)) {
+      const queryParams = [id, optionID, pri, votes.guest_name];
+      storeResultsByPollId(queryParams)
+        .catch(e => res.send(e))
+    }
+  }
+  res.redirect(`/vote/${id}/results`);
 });
 
 
