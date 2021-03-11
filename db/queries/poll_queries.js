@@ -27,9 +27,7 @@ const updatePollOptionsById = (id, choice) => {
   WHERE id = $1
   RETURNING *;`
 , [id, choice])
-  .then((response) => {
-    return response.rows;
-  });
+
 
 };
 
@@ -40,9 +38,6 @@ const updatePollById = (p, req) => {
   WHERE id = $3
   RETURNING *;`
 , [p.title, p.desc, req.poll_id])
-  .then((response) => {
-    return response.rows;
-  });
 
 };
 

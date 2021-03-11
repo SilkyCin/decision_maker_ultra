@@ -21,7 +21,9 @@
     <h1>Poll creation</h1>
 
   </form>
-  <form action = "/poll/<%= user['id'] + '/' + poll_id %>" method = "POST">
+  <input type = "text" name = "poll_id" id = "poll_id" value = "<%= poll_id %>" hidden/>
+  <input type = "text" name = "user_id" id = "user_id" value = "<%= user['id'] %>" hidden/>
+  <form action = "/poll/<%= user['id'] + '/' + poll_id %>" method = "POST" id = "pollForm" >
 
     <% for (let num = 1; num <= opNum; num++) { %>
        <label for = "op<%= num %>">Option <%= num %></label>
@@ -30,6 +32,17 @@
 
     <input id = "sub" type="submit" value = "submit" />
   </form>
+  <div id = "linksMsg">
+    <h4 >Your poll has been created. Below are 3 links which have been sent to you at the email address you provided</h4>
+    <label for = "admin_url">Admin URL</label>
+    <input type = "url" name = "admin_url" value = "/admin/<%= user['id'] + '/' + poll_id %>" />
+
+    <label for = "admin_url" >Voting URL</label>
+    <input type = "url" name = "voting_url" value = "/vote/<%= poll_id %>" />
+  </div>
+
+  <!-- <label for = "">Voting URL</label>
+  <input type = "url" name = "voting_url" value = "/vote/<%= poll_id %>" hidden/>  -->
 
 
   </body>
