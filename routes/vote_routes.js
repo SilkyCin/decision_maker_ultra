@@ -1,17 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const { getOptionsByPollId } = require('../db/queries/poll_queries');
+const { displayOptionsByPollId } = require('../db/queries/poll_queries');
 const { storeResultsByPollId } = require('../db/queries/vote_queries');
 const { getResultsByPollId } = require('../db/queries/vote_queries');
 
 // get the poll needed to be voted on
 router.get('/:poll_id', (req, res) => {
 
-  getOptionsByPollId(req.params.poll_id)
+
+  displayOptionsByPollId(req.params)
     .then((options) => {
       // console.log(options);
-      let userObj;
-      const templateVars = {ops : options, p_id : req.params.poll_id, user : userObj };
+    //  let userObj;
+      const templateVars = {ops : options, p_id : req.params.poll_id };
       // console.log(templateVars);
       res.render('vote_page', templateVars);
     })
@@ -65,11 +66,20 @@ router.get('/:poll_id/results', (req, res) => {
     });
 });
 
-
+//Loops through votes and sends promise for each vote
 router.post('/:poll_id', (req, res) => {
-  console.log(req.body)
-  storeResultsByPollId(req.params.poll_id, req.body)
-    .then((ins) => {});
+  let votes = req.body;
+  const id = Number(req.params.poll_id);
+  for (let optionID in votes) {
+    const pri = Number(votes[optionID])
+    optionID = Number(optionID);
+    if (!isNaN(optionID) && !isNaN(pri)) {
+      const queryParams = [id, optionID, pri, votes.guest_name];
+      storeResultsByPollId(queryParams)
+        .catch(e => res.send(e))
+    }
+  }
+  res.redirect(`/vote/${id}/results`);
 });
 
 

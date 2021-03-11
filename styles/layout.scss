@@ -43,20 +43,16 @@ body {
     color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
-  };
-
+  }
   h4 {
     color: rgb(0, 0, 0);
     font-weight: 750;
     align-self: center;
-
-  };
-
+  }
   #mainStuff {
     display: flex;
     justify-content: center;
-  };
-
+  }
   .create-poll {
     display: flex;
     flex-direction: column;
@@ -72,18 +68,17 @@ body {
       @extend .create-poll;
       align-self: center;
       width: 33%;
-    };
+    }
     #desc {
       @extend .create-poll;
       padding-bottom: 5em;
-
-    };
+    }
     #nums {
       @extend .create-poll;
       width: 5em;
       margin-bottom: 1.5em;
-      align-self: center
-    };
+      align-self: center;
+    }
     #sub {
       @extend .create-poll;
       display: flex;
@@ -92,28 +87,12 @@ body {
       background-color: $btn-color;
       color: white;
       width: 5em;
-      border-color: $btn-hov
-    };
-
-    #sub:hover{
+      border-color: $btn-hov;
+    }
+    #sub:hover {
       background-color: $btn-hov;
     }
-  };
-};
-
-// styles for results page
-.results-table {
-  // display: flex;
-  // justify-content: space-between;
-  border-collapse: collapse;
-  width: 60%;
-  margin: auto;
-  border-radius: 15px;
-};
-.results-table:hover {
-  border-radius: 15px;
-  box-shadow: 15px 15px 15px #7e7d7b;
-  // color: #545149;
+  }
 }
 
 th {
@@ -147,4 +126,12 @@ p {
 
 footer {
   margin-bottom: 100px;
+// center alignment for nav bar
+header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+  }
 }

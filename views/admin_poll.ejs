@@ -14,18 +14,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <%- include('partials/_header'); %>
   </head>
 
   <body>
-    <h1>Admin Page</h1>
+    <h1>Poll creation</h1>
 
   </form>
-  <form action = "/poll/<%= poll_id %>" method = "POST">
-
-
+  <form action = "/poll/<%= user['id'] + '/' + poll_id %>" method = "POST">
 
     <% for (let num = 1; num <= opNum; num++) { %>
-       <label>Option <%= num %></label><input type="text" name = "op<%= num %>" id = "option" />
+       <label for = "op<%= num %>">Option <%= num %></label>
+       <input type="text" name = "op<%= num %>" id = "option" />
     <% } %>
 
     <input id = "sub" type="submit" value = "submit" />

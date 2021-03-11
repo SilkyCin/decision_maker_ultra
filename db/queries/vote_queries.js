@@ -34,12 +34,14 @@ const getResultsByPollId = (pollID) => {
 };
 
 
-//TO BE DONE. INSERTING DATA INTO DATABASE
-const storeResultsByPollId = (id) => {
-  return db.query(``
-  , [id])
+//INSERTING DATA INTO DATABASE
+const storeResultsByPollId = (queryParams) => {
+  const queryString =  `INSERT INTO votes (poll_id, option_id, priority, guest_name)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *;`;
+  return db.query(queryString, queryParams)
     .then((response) => {
-      return response.rows[0];
+      return response;
     });
 };
 
@@ -51,5 +53,6 @@ const getAllPollResultsbyUserId = () => {
 module.exports = {
   getVotesByPollId,
   getResultsByPollId,
-  getAllPollResultsbyUserId
+  getAllPollResultsbyUserId,
+  storeResultsByPollId
 };
