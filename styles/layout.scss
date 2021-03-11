@@ -31,13 +31,10 @@ $font-size: 16px;
 }
 
 body {
+  padding-top: 90px;
   background-color: white;
   font-size: $font-size;
   color: $text-color;
-
-  .add-space {
-    margin-top: 120px;
-  }
 
   h1 {
     color: rgb(0, 0, 0);
@@ -95,6 +92,19 @@ body {
   }
 }
 
+// styles for results page
+.results-table {
+  border-collapse: collapse;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  &:hover {
+    border-radius: 15px;
+    box-shadow: 15px 15px 15px #7e7d7b;
+  }
+};
+
 th {
   font-size: 20px;
   padding: 8px;
@@ -110,10 +120,6 @@ td {
 
 tr:hover {background-color:#dedfe4;}
 
-p {
-  text-align: center;
-};
-
 .image {
   display: block;
   margin-left: auto;
@@ -126,12 +132,13 @@ p {
 
 footer {
   margin-bottom: 100px;
+}
+
 // center alignment for nav bar
 header {
   nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    }
   }
 }
