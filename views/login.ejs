@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <title>Results Page</title>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <!-- <title>TinyApp</title> -->
-  <%- include('partials/_header'); %>
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-</head>
+    <!-- External CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    <!-- jQuery and Bootstrap CDNs -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- App CSS -->
+    <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <%- include('partials/_header'); %>
+  </head>
 <body>
-  <main style="margin: 1em;">
+  <main class="login" style="margin: 1em;">
 
-    <h3> Login </h3>
-    <form action = "/login" method="POST">
-
-      <label for = "email" >Email: </label>
-      <input type = "email" name="email" />
-
-      <label for = "name">Enter name</label>
-      <input type = "text" name = "name" id = "name" />
-
+    <h2> Welcome to Decision Maker Ultra </h2>
+    <form class="login-container" action = "/login" method="POST">
+      <div class="login-fields">
+        <!-- <label for = "email" >Email: </label> -->
+        <input id=#login-input type = "email" name="email" placeholder="Enter your email" />
+      </div>
+      <div class="login-fields">
+        <!-- <label for = "name">Enter name:</label> -->
+        <input id=#login-input type = "text" name = "name" id = "name" placeholder="What's your name?"/>
+      </div>
       <!-- <label for="password">Password: </label>
 
       <input type = "password" name="password"  /> -->
 
-      <input type = "submit" value="Submit" class = "btn btn-primary" />
+      <input type = "submit" value="Login" class = "btn btn-primary" />
 
     </form>
   </main>
