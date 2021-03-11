@@ -104,15 +104,10 @@ label {
   margin-top: 20px;
 }
 
-input {
-  background-color: #FFEFD6;
-}
-
 input:focus {
-  background-color: #FFE0AD;
-  -webkit-box-shadow: 0 0 5pt 2pt #9c9b9b;
-          box-shadow: 0 0 5pt 2pt #9c9b9b;
-  outline-width: 0px;
+  background-color: #0A1128;
+  color: white;
+  outline: none;
 }
 
 .inputContainer, label, input {
@@ -131,7 +126,7 @@ input:focus {
   font-weight: 300;
 }
 
-.mainContainer, .mainContainer #desc, .mainContainer #name, .mainContainer #sub, .mainContainer #title, .mainContainer #nums {
+.mainContainer, .mainContainer #desc, .mainContainer #name, .mainContainer #sub, .mainContainer .log-in-out, .mainContainer #title, .mainContainer #nums {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -169,13 +164,13 @@ input:focus {
 
 .mainContainer #rank {
   font-size: 20px;
-  width: 50px;
+  width: 75px;
   margin-left: 15px;
   margin-right: 15px;
 }
 
 .mainContainer #name {
-  width: 100px;
+  width: 200px;
 }
 
 .mainContainer #sub {
@@ -186,7 +181,6 @@ input:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  color: #0A1128;
   margin-left: 10em;
   margin-right: 10em;
   -webkit-box-align: center;
@@ -194,10 +188,21 @@ input:focus {
           align-items: center;
   -ms-flex-item-align: center;
       align-self: center;
-  background-color: #FF9E00;
   color: white;
-  width: 5em;
-  border-color: #663C00;
+  font-size: 20px;
+}
+
+.mainContainer .log-in-out, .mainContainer #desc .log-in-out, .mainContainer #name .log-in-out, .mainContainer #sub .log-in-out, .mainContainer .log-in-out .log-in-out, .mainContainer #title .log-in-out, .mainContainer #nums .log-in-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  color: white;
 }
 
 .mainContainer #title {
@@ -217,25 +222,6 @@ input:focus {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-}
-
-.mainContainer #sub {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-item-align: center;
-      align-self: center;
-  background-color: #FF9E00;
-  color: white;
-  width: 5em;
-  border-color: #663C00;
-}
-
-.mainContainer #sub:hover {
-  background-color: #663C00;
 }
 
 .image-win {
@@ -290,7 +276,6 @@ input {
   border-width: 2px;
   border-color: #0A1128;
   padding: 12px 20px;
-  margin: 8px 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   outline: none;
@@ -307,5 +292,31 @@ input[type=text]:focus, input:focus[type=email] {
   font-size: 20px;
   border-radius: 5px;
   border: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logout-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  margin-right: 10px;
 }
 /*# sourceMappingURL=layout.css.map */
