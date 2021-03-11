@@ -36,7 +36,7 @@
         <% for (let op of ops) { %>
           <div class="inputContainer">
             <label class="inputContainer"><%= op.choice %> </label>
-            <input type="number" name = '<%= op.id %>' id = "rank" min=1 max=<%=totalChoices%>>
+            <input type="number" name = '<%= op.id %>' id = "rank" min=1 max=<%=totalChoices%> required>
           </div>
           <% } %>
         </div>

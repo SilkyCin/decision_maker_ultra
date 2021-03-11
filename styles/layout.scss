@@ -44,6 +44,7 @@ label {
 input {
   @extend .inputContainer;
   // background-color: $textbox-color;
+
   &:focus{
     // background-color: $textbox-hov-color;
     // box-shadow: 0 0 5pt 2pt #9c9b9b;

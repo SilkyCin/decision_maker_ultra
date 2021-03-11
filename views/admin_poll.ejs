@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
   <head>
     <title>Admin Page</title>
 
@@ -39,10 +39,10 @@
 
     <% for (let num = 1; num <= opNum; num++) { %>
        <label for = "op<%= num %>">Option <%= num %></label>
-       <input type="text" name = "op<%= num %>" id = "option" />
+       <input type="text" name = "op<%= num %>" id = "option" required/>
     <% } %>
 
-    <input id = "sub" type="submit" value = "submit" />
+    <input id = "sub" type="submit" value = "submit" class="btn btn-primary"/>
   </form>
   <div id = "linksMsg">
     <h4 >Your poll has been created. Below are 3 links which have been sent to you at the email address you provided</h4>

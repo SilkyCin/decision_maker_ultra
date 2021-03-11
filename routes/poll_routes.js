@@ -29,9 +29,10 @@ router.post('/:u_id/:poll_id', (req, res) => {
     res.status(403).send('<h3>You must be logged in and have a valid poll id.</h3>');
     return;
   }
-  console.log(req.body);
+  // console.log("Herehereherehrerherh",req.body);
   const ops = req.body;
   for (let op in ops) {
+
      let data = {choice : ops[op], poll_id : req.params.poll_id}
      insertOptions(data)
      .catch(e => console.log(ERROR, e));
@@ -39,7 +40,6 @@ router.post('/:u_id/:poll_id', (req, res) => {
 
   return getUserDetails(req.params)
   .then((resp) => {
-    console.log(resp.rows);
 
     const links = {admin : resp.rows[0].admin_url, voting : resp.rows[0].voting_url};
     sendMail(resp.rows[0].email, resp.rows[0].name, links);
