@@ -20,10 +20,21 @@ router.post('/:u_id/:poll_id', (req, res) => {
      console.log(i);
      console.log("sd");
      updatePollOptionsById(i, opsData[i])
-    .catch(e => console.log(ERROR, e));
+     .then((response) => {
+       console.log(response.rows);
+       console.log("kmkmkmkm")
+     })
+     .catch(e => {
+       console.log(ERROR, e)
+     });
   }
   updatePollById(pollData, req.params)
+  .then((response) => {
+    console.log(response.rows);
+    console.log("cvcvcvcv")
+  })
   .catch(e => console.log(ERROR, e));
+});
   //res.redirect(`/admin/${req.params.u_id}/${req.params.poll_id}`);
 
   // return getOptionsByPollId(req.params)
@@ -37,7 +48,7 @@ router.post('/:u_id/:poll_id', (req, res) => {
   // })
   // .catch(er => console.log('ERROR',er));
 
-});
+
 
 //endpoint for handling GETs received at the admin URL, AKA /admin/:u_id/:poll_id
 router.get('/:u_id/:poll_id', (req, res) => {

@@ -1,29 +1,33 @@
 <header>
 
-  <nav>
+  <nav >
     <p id="logo">DECISION MAKER Ultra</p>
-    <div id = "crPoll">
-      <a class="nav-item nav-link" href= "/poll" >Create new poll</a>
-    </div>
 
     <% if (user === undefined || !user) { %>
+      <div id = "crPoll">
+        <a class="nav-item nav-link" href= "/poll" >Create new poll</a>
+      </div>
 
-      <div id = "log-in-out">
+      <div id = "logInOut">
+
         <a href="/login" class="btn btn-primary">Login</a>
+
       </div>
 
     <% } else { %>
-
-      <div class= "log-in-out">
-        <form action= "/logout" method = "POST" class="logout-section">
-
-          <label class="logout-section" for="Logout" >Signed in as: <%= user['email'] %></label>
-          <input type="submit" value="Logout" name="Logout" class="btn btn-primary"/>
-
-        </form>
+      <div id = "crPoll">
+        <a class="nav-item nav-link" href="/poll/<%= user['id'] %>">Create new poll</a>
       </div>
+       <div id = "log-in-out">
+          <form action  = "/logout" method = "POST" class="logout-section">
 
+            <label class="logout-section" for="Logout">Signed in as: <%= user['email'] %></label>
+            <input type="submit" value="Logout" name = "logout" class="btn btn-primary"/>
+
+          </form>
+       </div>
     <% } %>
+
   </nav>
 
 </header>

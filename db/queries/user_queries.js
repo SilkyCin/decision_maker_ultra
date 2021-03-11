@@ -25,8 +25,20 @@ const getUser = (id) => {
   .catch(er => console.log('ERROR',er));
 };
 
+const getUserDetails = (req) => {
+  const queryString = `
+  SELECT u.name, u.email, p.admin_url, p.voting_url
+  FROM users as u INNER JOIN polls as p
+  ON u.id = p.user_id
+  WHERE p.id = $1;`;
+  const queryParams = [req.poll_id]
+  return db.query(queryString, queryParams);
+
+};
+
 module.exports = {
   insertNewUser,
-  getUser
+  getUser,
+  getUserDetails
 
 };

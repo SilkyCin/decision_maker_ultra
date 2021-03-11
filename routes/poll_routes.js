@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
-const { insertNewPoll,
-  updateURLs, insertOptions } = require('../db/queries/insert_new_poll.js')
+const { insertNewPoll, updateURLs, insertOptions } = require('../db/queries/insert_new_poll.js');
+const { getUserDetails } = require('../db/queries/user_queries.js');
+const { sendMail } = require('../helpers/helpers.js');
+
+
 const { getUser } = require('../db/queries/user_queries.js');
 //endpoint to handle post requests to add basic poll info to database
 router.post('/:u_id', (req, res) => {
@@ -33,7 +36,21 @@ router.post('/:u_id/:poll_id', (req, res) => {
      insertOptions(data)
      .catch(e => console.log(ERROR, e));
   }
-  res.redirect(`/admin/${req.params.u_id}/${req.params.poll_id}`);
+
+  return getUserDetails(req.params)
+  .then((resp) => {
+    console.log(resp.rows);
+
+    const links = {admin : resp.rows[0].admin_url, voting : resp.rows[0].voting_url};
+    sendMail(resp.rows[0].email, resp.rows[0].name, links);
+    res.json('Done!');
+  })
+  .catch((e) => {
+    console.log(ERROR, e);
+  })
+  //
+  //res.redirect(`/admin/${req.params.u_id}/${req.params.poll_id}`);
+
 });
 //endpoint to handle GETs received at /:u_id. loads the create poll page
 router.get('/:u_id', (req, res) => {

@@ -8,11 +8,11 @@ nav {
   position: fixed; //fixes navbar
   top: 0; // sets position to 0
   z-index: 2; // fixes navabr over other items
-  background-color: #001F54;
+  background-color: #001f54;
   color: white;
   margin-bottom: 90px;
-  padding-left:30px;
-  padding-right:30px;
+  padding-left: 30px;
+  padding-right: 30px;
 
   #logo {
     font-family: Shadows Into Light, sans-serif;
@@ -22,7 +22,7 @@ nav {
   }
 
   #logo-ext {
-    color: #FF9E00;
+    color: #ff9e00;
   }
 
   #create {
@@ -35,4 +35,3 @@ nav {
     font-size: 20px;
   }
 }
-
