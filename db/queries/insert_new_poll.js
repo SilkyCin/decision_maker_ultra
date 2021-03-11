@@ -1,5 +1,15 @@
 const db = require('../db');
 
+const getNumOps = (id) => {
+  console.log("ID",id)
+  const queryString = `
+  SELECT numops
+  FROM polls
+  WHERE id = $1;`;
+  return db.query(queryString, [id])
+  .then((res) => res.rows[0].numops)
+};
+
 //Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
   const queryString = `
@@ -39,8 +49,10 @@ const insertOptions = (data) => {
   .catch(e => console.log(e));
 }
 
+
 module.exports = {
   insertNewPoll,
   updateURLs,
-  insertOptions
+  insertOptions,
+  getNumOps
 };

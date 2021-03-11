@@ -28,17 +28,18 @@
 }
 
 body {
-  background-color: white;
+  background-color: #FFF7EB;
   font-size: 16px;
   color: #0A1128;
+  padding-top: 90px;
 }
 
 body .add-space {
   margin-top: 120px;
 }
 
-body h1 {
-  color: black;
+h1, h2, h3 {
+  color: #0A1128;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,24 +48,27 @@ body h1 {
           justify-content: center;
 }
 
-body h4 {
-  color: black;
-  font-weight: 750;
+label {
+  color: #0A1128;
+  font-size: 16px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  margin-top: 20px;
 }
 
-body #mainStuff {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+input {
+  background-color: #FFEFD6;
 }
 
-body .create-poll, body .create-poll #title, body .create-poll #desc, body .create-poll #nums, body .create-poll #sub {
+input:focus {
+  background-color: #FFE0AD;
+  -webkit-box-shadow: 0 0 5pt 2pt #9c9b9b;
+          box-shadow: 0 0 5pt 2pt #9c9b9b;
+  outline-width: 0px;
+}
+
+.inputContainer, label, input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -72,31 +76,62 @@ body .create-poll, body .create-poll #title, body .create-poll #desc, body .crea
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 25px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.mainContainer, .mainContainer #desc, .mainContainer #name, .mainContainer #sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
   color: #0A1128;
-  margin-left: 10em;
-  margin-right: 10em;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
-body .create-poll #title {
+.mainContainer #voteLayout {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  width: 33%;
-}
-
-body .create-poll #desc {
-  padding-bottom: 5em;
-}
-
-body .create-poll #nums {
-  width: 5em;
-  margin-bottom: 1.5em;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
 }
 
-body .create-poll #sub {
+.mainContainer #desc {
+  padding-bottom: 50px;
+}
+
+.mainContainer #rank {
+  font-size: 20px;
+  width: 50px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.mainContainer #name {
+  width: 100px;
+}
+
+.mainContainer #sub {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,8 +146,11 @@ body .create-poll #sub {
   border-color: #663C00;
 }
 
-body .create-poll #sub:hover {
+.mainContainer #sub:hover {
   background-color: #663C00;
+  -webkit-box-shadow: 0 0 5pt 2pt #9c9b9b;
+          box-shadow: 0 0 5pt 2pt #9c9b9b;
+  outline-width: 0px;
 }
 
 th {
