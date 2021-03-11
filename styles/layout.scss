@@ -4,11 +4,11 @@ $text-color: #0A1128;
 $headertext-color: #1282A2;
 $nav-color: #001F54;
 $btn-color: #A35F00;
+$btn-hov: #663C00;
 
 
 body {
   background-color: white;
-
   h1 {
     color: rgb(0, 0, 0);
     display: flex;
@@ -17,7 +17,7 @@ body {
   h4 {
     color: rgb(0, 0, 0);
     font-weight: 750;
-    margin-left: 4em;
+    align-self: center;
 
   };
   #mainStuff {
@@ -27,38 +27,42 @@ body {
   .create-poll {
     display: flex;
     flex-direction: column;
-    align-items: align-left;
+    // align-items: center;
     color: $text-color;
-
-    margin-top: .5em;
-    margin-bottom: .75em;
-    margin-left: 5em;
-    margin-right: 5em;
+    // width: 75%;
+    // margin-top: .5em;
+    // margin-bottom: .75em;
+    margin-left: 10em;
+    margin-right: 10em;
 
     #title {
       @extend .create-poll;
+      align-self: center;
+      width: 33%;
     };
     #desc {
       @extend .create-poll;
-      padding-top: 5em;
-      margin-bottom: .75em;
-      margin-left: 5em;
-      margin-right: 5em;
+      padding-bottom: 5em;
+
     };
     #nums {
       @extend .create-poll;
+      width: 5em;
+      margin-bottom: 1.5em;
+      align-self: center
     };
     #sub {
       @extend .create-poll;
       display: flex;
       align-items: center;
+      align-self: center;
       background-color: $btn-color;
       color: white;
-      margin-left: 20em;
-      margin-right: 20em;
+      width: 5em;
+      border-color: $btn-hov
     };
     #sub:hover{
-      background-color: $nav-color;
+      background-color: $btn-hov;
     }
   };
 }
