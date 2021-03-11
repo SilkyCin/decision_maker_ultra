@@ -31,6 +31,8 @@ const updatePollOptionsById = (id, choice) => {
 
 };
 
+
+
 const updatePollById = (p, req) => {
   return db.query(`
   UPDATE polls
@@ -51,11 +53,23 @@ const displayOptionsByPollId = (req) => {
     return response.rows;
   });
 };
+const displayTitleByPollId = (req) => {
+  const id = Number(req.poll_id);
+  console.log("monkeyfuzz:", req)
+
+  return db.query(`
+  SELECT title, description FROM polls
+  WHERE id = $1;`
+, [id])
+  .then((response) => response.rows[0])
+  .catch((e) => console.log(e));
+};
 
 module.exports = {
   getPolls,
   getOptionsByPollId,
   updatePollOptionsById,
   updatePollById,
-  displayOptionsByPollId
+  displayOptionsByPollId,
+  displayTitleByPollId
 };

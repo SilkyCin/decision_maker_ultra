@@ -1,48 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <title>Results Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <!-- External CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
-
-    <script type="text/javascript" src="/scripts/app.js"></script>
-
-    <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
-
-
-     <!-- jQuery and Bootstrap CDNs -->
+    <!-- jQuery and Bootstrap CDNs -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- App CSS -->
+    <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
     <%- include('partials/_header'); %>
   </head>
 
   <body>
-    <!-- <h1>Create Poll</h1> -->
-    <!-- <div id = "navBar">
-      <button type = "button" id = "showForm">Create Poll</button>
-      <p id = "userEm"></p>
-    </div> -->
-   <!-- <div id = "mainStuff">
-
-      <form action = "/" method = "POST" id = "userForm">
-
-        <label for = "email">Enter email</label>
-        <input type = "email" name = "email" id = "email" />
-        <br />
-        <label for = "name">Enter name</label>
-        <input type = "text" name = "name" id = "name" />
-        <br />
-        <input id = "sub" type="submit" value = "Submit user" />
-
-      </form>
-
-
-    </div> -->
+    <div class="left">
+      <span class="final">Decision Maker Ultra</span>
+      <span class="draft"><del>Make Decisions</del></span>
+      <span class="draft"><del>Chooser Pro</del></span>
+      <span class="draft"><del>Option Picker</del></span>
+    </div>
+    <div class="right">
+      <img class="decide" src="https://images.unsplash.com/photo-1516824600626-47a22f894aff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80">
+    </div>
   </body>
 </html>

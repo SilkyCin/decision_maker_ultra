@@ -1,20 +1,40 @@
 const express = require('express');
 const router = express.Router();
-const { displayOptionsByPollId } = require('../db/queries/poll_queries');
-const { storeResultsByPollId } = require('../db/queries/vote_queries');
-const { getResultsByPollId } = require('../db/queries/vote_queries');
+const { getNumOps } = require('../db/queries/insert_new_poll');
+const { displayOptionsByPollId, displayTitleByPollId } = require('../db/queries/poll_queries');
+const { storeResultsByPollId, getResultsByPollId} = require('../db/queries/vote_queries');
+
 
 // get the poll needed to be voted on
 router.get('/:poll_id', (req, res) => {
-
+const id = Number(req.params.poll_id);
 
   displayOptionsByPollId(req.params)
+
     .then((options) => {
       // console.log(options);
-    //  let userObj;
-      const templateVars = {ops : options, p_id : req.params.poll_id };
-      // console.log(templateVars);
-      res.render('vote_page', templateVars);
+      getNumOps(id)
+      .then(totalChoices => {
+        let userObj;
+        console.log("req.params:", req.params)
+        displayTitleByPollId(req.params)
+        .then(response => {
+          console.log(response)
+          const templateVars = {
+            ops : options,
+            p_id : req.params.poll_id,
+            totalChoices: totalChoices,
+            user : userObj,
+            title: response.title,
+            desc: response.description
+          };
+        console.log("totalChoices", totalChoices)
+        console.log(templateVars);
+        res.render('vote_page', templateVars);
+        })
+      })
+
+    // console.log(templateVars);
     })
     .catch(e => {
       console.error(e);

@@ -1,0 +1,29 @@
+table {
+  margin-top: 30px;
+  border-collapse: collapse;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  &:hover {
+    border-radius: 15px;
+    box-shadow: 15px 15px 15px #b4b4b3;
+  }
+
+  th {
+    font-size: 20px;
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid rgb(221, 221, 221);
+  }
+
+  td {
+    padding: 8px;
+    text-align: center;
+    border-top: 1px solid rgb(221, 221, 221);
+  }
+
+  tr:hover {
+    background-color: #dedfe4;
+  }
+}

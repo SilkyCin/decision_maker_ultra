@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>Vote</title>
+    <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <title>Results Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <!-- External CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-
-     <!-- jQuery and Bootstrap CDNs -->
+    <!-- jQuery and Bootstrap CDNs -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <!-- App CSS -->
+    <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <%- include('partials/_header'); %>
   </head>
 
   <body>
     <h1>Time to vote</h1>
-    <form class="create-poll" action = "/vote/<%= p_id %>" method = "POST">
-      <h3>Please rank each item by choice. Example, first choice will be #1.</h3>
-      <h4>Your Name</h4><input type="text" name = 'guest_name' id = "title">
-      <p>Rank your favourite items 1st to last</p>
-      <% for (let op of ops) { %>
-
-      <h4><%= op.choice %> </h4><input type="text" name = '<%= op.id %>' id = "title">
-
-      <% } %>
-      <input type="submit" value="Vote!" name = "submit" class="btn btn-danger" id="sub"/>
+    <form class="mainContainer" action = "/vote/<%= p_id %>" method = "POST">
+      <h2>Rank your favourite <%=title%> 1st to last</h2>
+      <h3><%=desc%></h3>
+      <div id="voteLayout">
+        <% for (let op of ops) { %>
+          <div class="inputContainer">
+            <label class="inputContainer"><%= op.choice %> </label>
+            <input type="number" name = '<%= op.id %>' id = "rank" min=1 max=<%=totalChoices%>>
+          </div>
+          <% } %>
+        </div>
+        <div class="inputContainer">
+         <label >Your Name<br>(Optional)</label>
+         <input type="text" name = 'guest_name' id="name">
+       </div >
+      <input type="submit" value="Vote!" name = "submit" class="btn btn-primary" id="sub"/>
     </form>
 
   </body>

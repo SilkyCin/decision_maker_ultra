@@ -1,10 +1,7 @@
 <header>
-  <nav class="navbar">
-    <!-- <a id="logo" href="/urls">Decision Maker</a> -->
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
 
+  <nav >
+    <p id="logo">DECISION MAKER Ultra</p>
 
     <% if (user === undefined || !user) { %>
       <div id = "crPoll">
@@ -21,11 +18,11 @@
       <div id = "crPoll">
         <a class="nav-item nav-link" href="/poll/<%= user['id'] %>">Create new poll</a>
       </div>
-       <div id = "logInOut">
-          <form action  = "/logout" method = "POST">
+       <div id = "log-in-out">
+          <form action  = "/logout" method = "POST" class="logout-section">
 
-            <label for = "logout">Signed in as: <%= user['email'] %></label>
-            <input type="submit" value="Logout" name = "logout" class="btn btn-danger"/>
+            <label class="logout-section" for="Logout">Signed in as: <%= user['email'] %></label>
+            <input type="submit" value="Logout" name = "logout" class="btn btn-primary"/>
 
           </form>
        </div>
@@ -33,6 +30,4 @@
 
   </nav>
 
-
 </header>
-<link rel="stylesheet" href="/styles/layout.css" type="text/css" />

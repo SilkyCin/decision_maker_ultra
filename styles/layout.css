@@ -1,86 +1,4 @@
-body {
-  background-color: white;
-}
-
-body h1 {
-  color: black;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-body h4 {
-  color: black;
-  font-weight: 750;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-body #mainStuff {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-body .create-poll, body .create-poll #title, body .create-poll #desc, body .create-poll #nums, body .create-poll #sub {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  color: #0A1128;
-  margin-left: 10em;
-  margin-right: 10em;
-}
-
-body .create-poll #title {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  width: 33%;
-}
-
-body .create-poll #desc {
-  padding-bottom: 5em;
-}
-
-body .create-poll #nums {
-  width: 5em;
-  margin-bottom: 1.5em;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-body .create-poll #sub {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-item-align: center;
-      align-self: center;
-  background-color: #A35F00;
-  color: white;
-  width: 5em;
-  border-color: #663C00;
-}
-
-body .create-poll #sub:hover {
-  background-color: #663C00;
-}
-
-.navbar, .navbar #logo, .navbar #create {
+nav, nav #create {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,15 +9,314 @@ body .create-poll #sub:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  z-index: 2;
   background-color: #001F54;
+  color: white;
+  margin-bottom: 90px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+nav #logo {
+  font-family: Shadows Into Light, sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+
+nav #logo-ext {
+  color: #FF9E00;
+}
+
+nav #create {
+  font-weight: 300;
+}
+
+nav .nav-item.nav-link, nav #create .nav-item.nav-link {
+  color: white;
+  font-size: 20px;
+}
+
+table {
+  margin-top: 30px;
+  border-collapse: collapse;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+table:hover {
+  border-radius: 15px;
+  -webkit-box-shadow: 15px 15px 15px #b4b4b3;
+          box-shadow: 15px 15px 15px #b4b4b3;
+}
+
+table th {
+  font-size: 20px;
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+}
+
+table td {
+  padding: 8px;
+  text-align: center;
+  border-top: 1px solid #dddddd;
+}
+
+table tr:hover {
+  background-color: #dedfe4;
+}
+
+body {
+  background-color: #FFF7EB;
+  font-size: 16px;
+  color: #0A1128;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 90px;
+}
+
+h1, h2, h3 {
+  color: #0A1128;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+label {
+  color: #0A1128;
+  font-size: 16px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 20px;
+}
+
+input:focus {
+  background-color: #0A1128;
+  color: white;
+  outline: none;
+}
+
+.inputContainer, label, input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 25px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.mainContainer, .mainContainer #desc, .mainContainer #name, .mainContainer #sub, .mainContainer .log-in-out, .mainContainer #title, .mainContainer #nums {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: #0A1128;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.mainContainer #voteLayout {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.mainContainer #desc {
+  padding-bottom: 50px;
+}
+
+.mainContainer #rank {
+  font-size: 20px;
+  width: 75px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.mainContainer #name {
+  width: 200px;
+}
+
+.mainContainer #sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 10em;
+  margin-right: 10em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: white;
+  font-size: 20px;
+}
+
+.mainContainer .log-in-out, .mainContainer #desc .log-in-out, .mainContainer #name .log-in-out, .mainContainer #sub .log-in-out, .mainContainer .log-in-out .log-in-out, .mainContainer #title .log-in-out, .mainContainer #nums .log-in-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-line-pack: center;
+      align-content: center;
   color: white;
 }
 
-.navbar #logo {
-  font-weight: 1000;
+.mainContainer #title {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 33%;
 }
 
-.navbar #create {
-  font-weight: 300;
+.mainContainer #desc {
+  padding-bottom: 5em;
+}
+
+.mainContainer #nums {
+  width: 5em;
+  margin-bottom: 1.5em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.image-win {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+footer {
+  margin-bottom: 100px;
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 80px;
+}
+
+.login-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.login-fields {
+  padding: 5px;
+}
+
+input {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0A1128;
+  padding: 12px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+}
+
+input[type=text]:focus, input:focus[type=email] {
+  background-color: #0A1128;
+  color: white;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #FF9E00;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.logout-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  margin-right: 10px;
 }
 /*# sourceMappingURL=layout.css.map */
