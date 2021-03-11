@@ -39,7 +39,7 @@ router.post('/:u_id/:poll_id', (req, res) => {
      insertOptions(data)
      .catch(e => console.log(ERROR, e));
   }
-  //res.redirect()
+  res.redirect(`/admin/${req.params.u_id}/${req.params.poll_id}`);
 
 });
 

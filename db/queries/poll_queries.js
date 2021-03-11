@@ -4,24 +4,48 @@ const getPolls = () => {
 
 };
 
-const getOptionsByPollId = (id) => {
+//gets options for the poll specified by poll id
+const getOptionsByPollId = (req) => {
   return db.query(`
-  SELECT *
-  FROM options
-  WHERE poll_id = $1;`
-, [id])
+  SELECT o.id, o.poll_id, o.choice, p.title, p.description
+  FROM options as o INNER JOIN polls as p
+  ON o.poll_id = p.id
+  WHERE o.poll_id = $1;`
+, [req.poll_id])
   .then((response) => {
     return response.rows;
   });
 };
 
-const getPollByUserId = (id) => {
+const updatePollOptionsById = (id, choice) => {
+  return db.query(`
+  UPDATE options
+  SET choice = $2
+  WHERE id = $1
+  RETURNING *;`
+, [id, choice])
+  .then((response) => {
+    return response.rows;
+  });
 
+};
+
+const updatePollById = (p, req) => {
+  return db.query(`
+  UPDATE polls
+  SET title = $1, description = $2
+  WHERE id = $3
+  RETURNING *;`
+, [p.title, p.desc, req.poll_id])
+  .then((response) => {
+    return response.rows;
+  });
 
 };
 
 module.exports = {
   getPolls,
   getOptionsByPollId,
-  getPollByUserId
+  updatePollOptionsById,
+  updatePollById
 };

@@ -18,17 +18,35 @@
   </head>
 
   <body>
-    <h1>Poll creation</h1>
+    <h1>Admin</h1>
 
   </form>
-  <form action = "/poll/<%= user['id'] + '/' + poll_id %>" method = "POST">
+  <form action = "/admin/<%= user['id'] + '/' + poll_id %>" method = "POST">
 
-    <% for (let num = 1; num <= opNum; num++) { %>
-       <label for = "op<%= num %>">Option <%= num %></label>
-       <input type="text" name = "op<%= num %>" id = "option" />
+    <h4>Poll Topic and Description</h4>
+
+      <label for = "title">Topic</label>
+      <input type = "text" name = "title" value = "<%= results[0].title %>" />
+
+      <label for = "desc">Description</label>
+      <input type = "text" name = "desc" value = "<%= results[0].description %>" />
+
+
+
+    <h4>Options</h4>
+    <%
+      let c = 0;
+      for (let r of results) {
+        c++;
+    %>
+
+      <label for = "<%= r.id %>">Option <%= c %></label>
+      <input type = "text" name = "<%= r.id %>" value = "<%= r.choice %>" />
+      <br />
+
     <% } %>
 
-    <input id = "sub" type="submit" value = "submit" />
+    <input id = "sub" type="submit" value = "Update" />
   </form>
 
 

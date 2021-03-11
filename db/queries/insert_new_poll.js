@@ -16,10 +16,11 @@ const insertNewPoll = (newPoll) => {
 const updateURLs = (req) => {
   const queryString = `
   UPDATE polls
-  SET admin_url = '/poll/${req.poll_id}', voting_url = '/vote/${req.poll_id}'
-  WHERE id = ${req.poll_id}
+  SET admin_url = $1, voting_url = $2
+  WHERE id = $3
   RETURNING *;`;
-  return db.query(queryString)
+  const queryParams = [`/admin/${req.u_id}/${req.poll_id}`, `/vote/${req.poll_id}`, req.poll_id];
+  return db.query(queryString, queryParams)
   .then((res) => {
     return res.rows;
   })
