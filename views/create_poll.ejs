@@ -21,7 +21,7 @@
     <h1>Create a new poll</h1>
     <form class="mainContainer" action = "/poll/<%= user['id'] %>" method = "POST">
       <div class="inputContainer">
-        <label for = "title">Title</label>
+        <label for = "title">What is this decision about?</label>
         <input type="text" name = "title" id = "title" />
       </>
       <div class="inputContainer">
@@ -29,7 +29,7 @@
         <input type="text" name = "desc" id = "desc" />
       </div>
       <div class="inputContainer">
-        <label for = "nums" >Number of options</label>
+        <label for = "nums" >How many options will there be?</label>
         <input type="number" name = "nums"  min="1" class="inputContainer" id = "rank" />
       </div>
 

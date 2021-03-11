@@ -23,14 +23,14 @@ $bg-clr: #FFF7EB;
   z-index: 2; // fixes navabr over other items
   background-color: $nav-color;
   color: white;
-  #logo {
-    @extend .navbar;
-    font-weight: 1000;
-  }
-  #create {
-    @extend .navbar;
-    font-weight: 300;
-  }
+}
+#logo {
+  @extend .navbar;
+  font-weight: 1000;
+}
+#create {
+  @extend .navbar;
+  font-weight: 300;
 }
 
 body {

@@ -1,4 +1,4 @@
-.navbar, .navbar #logo, .navbar #create {
+.navbar, #logo, #create {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,11 +19,11 @@
   color: white;
 }
 
-.navbar #logo {
+#logo {
   font-weight: 1000;
 }
 
-.navbar #create {
+#create {
   font-weight: 300;
 }
 
