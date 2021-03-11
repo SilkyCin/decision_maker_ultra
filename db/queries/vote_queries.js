@@ -40,9 +40,9 @@ const storeResultsByPollId = (queryParams) => {
   VALUES ($1, $2, $3, $4)
   RETURNING *;`;
   return db.query(queryString, queryParams)
-  .then((response) => {
-    return response;
-  });
+    .then((response) => {
+      return response;
+    });
 };
 
 // (stretch) show the results of all polls created by one user
