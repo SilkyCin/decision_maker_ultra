@@ -15,9 +15,7 @@ const getVotesByPollId = (id) => {
     });
 };
 
-// show the results of one poll
-// ************this function is incomplete************
-// this is where we will need to calculate results using the Borda Count method
+// show the results of one poll using the Borda Count tournament style ranking method
 const getResultsByPollId = (pollID) => {
   const id = Number(pollID);
   return db.query(`
@@ -28,9 +26,9 @@ const getResultsByPollId = (pollID) => {
   GROUP BY choice
   order by points_per_choice DESC;
 `, [id])
-  .then((response) => {
-    return response.rows;
-  });
+    .then((response) => {
+      return response.rows;
+    });
 };
 
 
@@ -46,7 +44,7 @@ const storeResultsByPollId = (queryParams) => {
 };
 
 // (stretch) show the results of all polls created by one user
-const getAllPollResultsbyUserId = () => {
+const getAllPollResultsbyUserId = (id) => {
 
 };
 
