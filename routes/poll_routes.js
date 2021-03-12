@@ -37,16 +37,17 @@ router.post('/:u_id/:poll_id', (req, res) => {
      insertOptions(data)
      .catch(e => console.log(ERROR, e));
   }
-
-  return getUserDetails(req.params)
+  console.log("YAY",req.params)
+  return getUserDetails(req.params.poll_id)
   .then((resp) => {
+    console.log("RESP", resp)
 
-    const links = {admin : resp.rows[0].admin_url, voting : resp.rows[0].voting_url};
-    sendMail(resp.rows[0].email, resp.rows[0].name, links);
+    const links = {admin : resp.admin_url, voting : resp.voting_url};
+    sendMail(resp.email, resp.name, links);
     res.json('Done!');
   })
   .catch((e) => {
-    console.log(ERROR, e);
+    console.log("ERROR", e);
   })
   //
   //res.redirect(`/admin/${req.params.u_id}/${req.params.poll_id}`);

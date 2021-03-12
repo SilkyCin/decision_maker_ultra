@@ -61,7 +61,7 @@ router.get('/:u_id/:poll_id', (req, res) => {
   return getOptionsByPollId(req.params)
   .then((results) => {
 
-    console.log(results);
+
     userObj = {email : req.session.email, id : req.session.user_id };
     const templateVars = {user : userObj, poll_id : req.params.poll_id, results : results};
     res.render('update_poll', templateVars);

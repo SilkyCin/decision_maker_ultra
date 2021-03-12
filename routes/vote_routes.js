@@ -50,7 +50,7 @@ displayOptionsByPollId(req.params)
                 desc: response.description,
                 name: x.name
               };
-              console.log(templateVars);
+              console.log("TEMPS",templateVars);
               res.render('vote_page', templateVars);
 
             })
