@@ -41,5 +41,5 @@ app.use('/vote', voteRoutes);
 app.use('/vote/:poll_id/results', resultRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Decision Maker Ultra listening on port ${PORT}`);
 });

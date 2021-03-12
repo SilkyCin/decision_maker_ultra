@@ -1,0 +1,23 @@
+//ID's associated with vote_page.ejs
+#title {
+  @extend .mainContainer;
+  align-self: center;
+  width: 33%;
+}
+#desc {
+  @extend .mainContainer;
+  padding-bottom: 5em;
+}
+#nums {
+  @extend .mainContainer;
+  width: 5em;
+  margin-bottom: 1.5em;
+  align-self: center;
+}
+#desc {
+  @extend .mainContainer;
+  @extend input;
+  &:focus {
+    color: white;
+  }
+}
