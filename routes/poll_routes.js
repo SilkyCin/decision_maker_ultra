@@ -3,6 +3,7 @@ const router = express.Router({ mergeParams: true });
 const { insertNewPoll, updateURLs, insertOptions } = require('../db/queries/insert_new_poll.js');
 const { getUserDetails } = require('../db/queries/user_queries.js');
 const { sendMail } = require('../helpers/helpers.js');
+require('dotenv').config();
 
 
 const { getUser } = require('../db/queries/user_queries.js');
@@ -45,9 +46,7 @@ router.post('/:u_id/:poll_id', (req, res) => {
     sendMail(resp.rows[0].email, resp.rows[0].name, links);
     res.json('Done!');
   })
-  .catch((e) => {
-    console.log(ERROR, e);
-  })
+  .catch(e => console.log(ERROR, e));
   //
   //res.redirect(`/admin/${req.params.u_id}/${req.params.poll_id}`);
 

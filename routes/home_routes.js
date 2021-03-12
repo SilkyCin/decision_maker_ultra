@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require("body-parser");
 const cookieSession = require('cookie-session');
+require('dotenv').config();
 
 const { insertNewUser } = require('../db/queries/user_queries.js');
 
@@ -55,7 +56,6 @@ router.post('/logout', (req, res) => {
 
 //endpoint to handle GETs received at /
 router.get("/", (req, res) => {
-
   let userObj;
   if ((req.session && req.session.email)) {
     userObj = {email : req.session.email, id : req.session.user_id };
@@ -65,6 +65,7 @@ router.get("/", (req, res) => {
     // res.status(403).send('<h3>You must be logged in  </h3>');
     // return;
   }
+
   const templateVars = {user : userObj};
   res.render('index', templateVars);
   return;
