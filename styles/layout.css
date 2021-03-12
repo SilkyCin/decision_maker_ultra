@@ -17,7 +17,7 @@ nav, nav #create {
   position: fixed;
   top: 0;
   z-index: 2;
-  background-color: #001F54;
+  background-color: #001f54;
   color: white;
   margin-bottom: 90px;
   padding-left: 30px;
@@ -31,7 +31,7 @@ nav #logo {
 }
 
 nav #logo-ext {
-  color: #FF9E00;
+  color: #ff9e00;
 }
 
 nav #create {
@@ -104,13 +104,16 @@ label {
   margin-top: 20px;
 }
 
-input:focus {
+input:focus, .mainContainer #desc:focus {
+  -webkit-box-shadow: 0 0 5pt 2pt #9c9b9b;
+          box-shadow: 0 0 5pt 2pt #9c9b9b;
+  outline-width: 0px;
   background-color: #0A1128;
   color: white;
   outline: none;
 }
 
-.inputContainer, label, input {
+.inputContainer, label, input, .mainContainer #desc, div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -158,8 +161,30 @@ input:focus {
       align-self: center;
 }
 
+.mainContainer .updateLayout, .mainContainer #desc .updateLayout, .mainContainer #name .updateLayout, .mainContainer #sub .updateLayout, .mainContainer .log-in-out .updateLayout, .mainContainer #title .updateLayout, .mainContainer #nums .updateLayout {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.mainContainer .updateLayout #update {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .mainContainer #desc {
-  padding-bottom: 50px;
+  color: white;
 }
 
 .mainContainer #rank {
@@ -270,7 +295,7 @@ footer {
   padding: 5px;
 }
 
-input {
+input, .mainContainer #desc {
   border-radius: 5px;
   border-style: solid;
   border-width: 2px;
@@ -281,7 +306,7 @@ input {
   outline: none;
 }
 
-input[type=text]:focus, input:focus[type=email] {
+input[type=text]:focus, .mainContainer #desc[type=text]:focus, input:focus[type=email], .mainContainer #desc:focus[type=email] {
   background-color: #0A1128;
   color: white;
   outline: none;

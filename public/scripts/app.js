@@ -42,6 +42,7 @@ function postOps (ops, poll_id, user_id) {
   });
   insert.done((resp) => {
     console.log(resp);
+    console.log("insertdone");
     $("#linksMsg").slideDown(1000);
     $("#sub").prop('disabled', true);
     $("#pollForm").trigger('reset');

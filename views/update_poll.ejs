@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Admin Page</title>
+    <title>Admin</title>
 
-    < <!-- Meta Information -->
+    <!-- Meta Information -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <title>Results Page</title>
 
     <!-- External CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
     <!-- jQuery and Bootstrap CDNs -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -30,51 +30,38 @@
   </head>
 
   <body>
-    <h1>Admin</h1>
-
-  <input type = "text" name = "poll_id" id = "poll_id" value = "<%= poll_id %>" hidden/>
-  <input type = "text" name = "user_id" id = "user_id" value = "<%= user['id'] %>" hidden/>
-
-  <h3>Poll Topic and Description</h3>
-  <form action = "/admin/<%= user['id'] + '/' + poll_id %>" method = "POST">
-
-      <label for = "title">Topic</label>
-      <input type = "text" name = "title" value = "<%= results[0].title %>" />
-
-      <label for = "desc">Description</label>
-      <input type = "text" name = "desc" value = "<%= results[0].description %>" />
-
-      <input id = "sub" type="submit" value = "Update" />
+    <h1>Admin Page</h1>
+    <input type = "text" name = "poll_id" id = "poll_id" value = "<%= poll_id %>" hidden/>
+    <input type = "text" name = "user_id" id = "user_id" value = "<%= user['id'] %>" hidden/>
   </form>
 
-  <h3>Options</h3>
-    <%
-      let c = 0;
-      for (let r of results) {
-        c++;
-    %>
-  <form action = "/admin/<%= user['id'] + '/' + poll_id + '/' + r.id %>" id = "<%= r.id %>" class = "opForm" method = "POST">
-      <label for = "<%= r.id %>">Option <%= c %></label>
-      <input type = "text" name = "<%= r.id %>" value = "<%= r.choice %>" />
-      <input type = "submit" class = "del" id = "del_<%= r.id %>" value = "Delete" />
-      <input type = "submit" class = "upd" id = "upd_<%= r.id %>" value = "Update" />
-      <br />
-  </form>
-    <% } %>
+<form action = "/admin/<%= user['id'] + '/' + poll_id %>" method = "POST" style = "display: flex; flex-direction: column; align-items: center;">
+
+  <h4>Poll Topic and Description</h4>
+
+    <label for = "title">Topic</label>
+    <input type = "text" name = "title" value = "<%= results[0].title %>" />
+
+    <label for = "desc">Description</label>
+    <input type = "text" name = "desc" value = "<%= results[0].description %>" />
 
 
 
+  <h4>Options</h4>
+  <section class="updateLayout">
+  <%
+    let c = 0;
+    for (let r of results) {
+      c++;
+  %>
 
-  </body>
-</html>
+    <label for = "<%= r.id %>">Option <%= c %></label>
+    <input type = "text" name = "<%= r.id %>" value = "<%= r.choice %>" />
+    <br />
 
- <!-- Option 0 <input type="text" name = "op0" id = "option">
-    Option 1 <input type="text" name = "op1" id = "option">
-    Option 2 <input type="text" name = "op2" id = "option">
-    Option 3 <input type="text" name = "op3" id = "option">
-    Option 4 <input type="text" name = "op4" id = "option">
-    Option 5 <input type="text" name = "op5" id = "option">
-    Option 6 <input type="text" name = "op6" id = "option">
-    Option 7 <input type="text" name = "op7" id = "option">
-    Option 8 <input type="text" name = "op8" id = "option">
-    Option 9 <input type="text" name = "op9" id = "option"> -->
+  <% } %>
+</section>
+  <input type="submit" value="Update" class="btn btn-primary"/>
+</form>
+
+</body>

@@ -1,8 +1,28 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
-const { getOptionsByPollId, updatePollOptionsById, updatePollById } = require('../db/queries/poll_queries.js')
+const { getOptionsByPollId, updatePollOptionsById, updatePollById, deletePollById } = require('../db/queries/poll_queries.js')
 
+// update poll fields
+// router.post('/:u_id/:poll_id', (req, res) => {
+//   let userObj;
+//   if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
+//     res.status(403).send('<h3>You must be logged in as the admin and have an active poll id.</h3>');
+//     return;
+//   }
 
+//   // console.log(req.body);
+//   const data = req.body;
+//   const pollData = {title : data.title, desc : data.desc}
+
+//   updatePollById(pollData, req.params)
+//     .then((response) => {
+//       console.log(response.rows);
+//       // console.log("cvcvcvcv")
+//       //res.redirect('/admin/'+)
+//     })
+//     .catch(e => console.log('ERROR', e));
+// });
+//update poll fields and options
 router.post('/:u_id/:poll_id', (req, res) => {
   let userObj;
   if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
@@ -13,48 +33,75 @@ router.post('/:u_id/:poll_id', (req, res) => {
   console.log(req.body);
   const data = req.body;
   const pollData = {title : data.title, desc : data.desc}
+  delete data.title;
+  delete data.desc;
+  const opsData = data;
+  let complete1 = 0;
+  let complete2 = 0;
 
   updatePollById(pollData, req.params)
   .then((response) => {
     console.log(response.rows);
     console.log("cvcvcvcv")
+    complete2 += 1;
+    for (let i in opsData) {
+      console.log(i);
+      console.log("sd");
+      updatePollOptionsById(i, opsData[i])
+      .then((response) => {
+        console.log(response.rows);
+        console.log("kmkmkmkm");
+        complete1 += 1;
+
+      })
+      .catch(e => {
+        console.log(ERROR, e)
+      });
+   }
+   res.redirect('/admin/' + req.params.u_id + '/' + req.params.poll_id);
   })
   .catch(e => console.log(ERROR, e));
+  //res.redirect
+  //if (complete1 > 0 && complete2 > 0) {
+   // res.redirect('/admin/' + req.params.u_id + '/' + req.params.poll_id);
+  //}
 });
 
-router.post('/:u_id/:poll_id/del', (req, res) => {
+// router.post('/:u_id/:poll_id/del', (req, res) => {
 
-  console.log(req.body);
-  const data = req.body;
-  res.json(data);
-});
+//   console.log(req.body);
+//   const data = req.body;
+//   res.json(data);
+// });
 
-router.post('/:u_id/:poll_id/upd', (req, res) => {
+// router.post('/:u_id/:poll_id/upd', (req, res) => {
 
-  console.log(req.body);
-  const data = req.body;
-  res.json(data);
-});
+//   console.log(req.body);
+//   const data = req.body;
+//   res.json(data);
+// });
 
 //endpoint for handling GETs received at the admin URL, AKA /admin/:u_id/:poll_id
 router.get('/:u_id/:poll_id', (req, res) => {
-  let userObj;
-  if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
-    res.status(403).send('<h3>You must be logged in as the admin and have an active poll id.</h3>');
-    return;
-  }
+  // let userObj;
+  // if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id)) {
+  //   // res.status(403).send('<h3>You must be logged in as the admin and have an active poll id.</h3>');
+  //   // return;
+  //   res.redirect('/login');
+  // }
 
   return getOptionsByPollId(req.params)
   .then((results) => {
 
-    //console.log(results);
-    userObj = {email : req.session.email, id : req.session.user_id };
+
+    userObj = {email : req.session.email, id : req.params.u_id };
     const templateVars = {user : userObj, poll_id : req.params.poll_id, results : results};
 
     res.render('update_poll', templateVars);
 
   })
   .catch(er => console.log('ERROR',er));
+
 });
 
   // delete data.title;

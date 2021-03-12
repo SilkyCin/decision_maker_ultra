@@ -5,48 +5,43 @@ const cookieSession = require('cookie-session');
 require('dotenv').config();
 
 const { insertNewUser } = require('../db/queries/user_queries.js');
-
+const { dispPolls } = require('../db/queries/poll_queries.js');
 
 //endpoint to allow users to create a user profile
 router.post('/login', (req, res) => {
 
+  let message = "";
+  let userObj;
   const newUser = req.body;
-  console.log(newUser);
+  if (newUser['email'].trim() === "") {
+    message = "Entering a valid email is mandatory";
+    const templateVars = { user: userObj, message: message };
+    res.render('login', templateVars);
+    return;
+  }
+  // console.log(newUser);
   return insertNewUser(newUser)
   .then((results) => {
     req.session.email = results[0].email;
     req.session.user_id = results[0].id;
     console.log(req.session.user_id);
-    console.log("bubub");
+    console.log("bubadwecqweub");
     console.log(results);
     console.log(req.session.email);
-    userObj = {email : req.session.email, id : req.session.user_id };
-    const templateVars = {user : userObj};
-    res.render('index', templateVars);
-    //res.redirect(`/poll/${results[0].id}`);
+    return dispPolls(results[0].email)
+    .then((response) => {
+      console.log("iiiii");
+      console.log(response.rows);
+      userObj = {email : req.session.email, id : req.session.user_id };
+      const templateVars = {user : userObj, pData : response.rows};
+      res.render('index', templateVars);
+    })
+    .catch((e) => console.log('ERROR', e));
   })
   .catch(er => console.log('ERROR',er))
 
 });
 
-
-// //endpoint for handling users who want to sign in to an account
-// router.post("/login", (req, res) => {
-//   const email = req.body.email;
-//   const password = req.body.password;
-//   const hashedPassword = getUsersPassword(email, users);
-//   if (!checkIfUserExist(email, users)) {
-//     res.status(403).send(`No user found with email id: ${email}. Please enter correct email`);
-//     return;
-//   }
-//   if (!bcrypt.compareSync(password, hashedPassword)) {
-//     res.status(403).send('Passwords do not match. Please enter the correct password.');
-//     return;
-//   }
-//   const u_id = getUserByEmail(email, users);
-//   req.session.user_id = u_id;
-//   res.redirect('/urls/');
-// });
 
 //endpoint for allowing users to log out of their accounts
 router.post('/logout', (req, res) => {
@@ -54,37 +49,40 @@ router.post('/logout', (req, res) => {
   res.redirect('/');
 });
 
-//endpoint to handle GETs received at /
-router.get("/", (req, res) => {
-  let userObj;
-  if ((req.session && req.session.email)) {
-    userObj = {email : req.session.email, id : req.session.user_id };
-    const templateVars = {user : userObj};
-    res.render('index', templateVars);
-    return;
-    // res.status(403).send('<h3>You must be logged in  </h3>');
-    // return;
-  }
 
-  const templateVars = {user : userObj};
-  res.render('index', templateVars);
-  return;
+//endpoint to handle a GET at /logout
+router.get('/logout', (req, res) => {
+  res.status(403).send('<h3> Please turn around and go back to where you came from. </h3>');
 });
 
 //endpoint to handle GETs received at /
-router.get("/poll", (req, res) => {
-
+router.get("/", (req, res) => {
   let userObj;
+  let pD = [];
   if ((req.session && req.session.email)) {
-    userObj = {email : req.session.email, id : req.session.user_id };
-    const templateVars = {user : userObj};
-    res.render('index', templateVars);
-    return;
+
+    return dispPolls(req.session.email)
+    .then((response) => {
+      console.log("iiiii");
+      console.log(response.rows);
+      userObj = {email : req.session.email, id : req.session.user_id };
+      const templateVars = {user : userObj, pData : response.rows};
+      res.render('index', templateVars);
+    })
+    .catch((e) => console.log('ERROR', e));
+
+
+    //tbridw
+    // userObj = {email : req.session.email, id : req.session.user_id };
+    // const templateVars = {user : userObj};
+    // res.render('index', templateVars);
+    // return;
     // res.status(403).send('<h3>You must be logged in  </h3>');
     // return;
   }
 
-  res.status(403).send('<h3>You must be logged in  </h3>');
+  const templateVars = {user : userObj, pData : pD};
+  res.render('index', templateVars);
   return;
 });
 
@@ -92,17 +90,61 @@ router.get("/poll", (req, res) => {
 //handles Get requests received at '/login'
 router.get('/login', (req, res) => {
   let userObj;
-  let message;
+  let message = "";
+  let pD = [];
   if ((req.session && req.session.user_id)) {
-    userObj = {email : req.session.email, id : req.session.user_id };
-    const templateVars = {user : userObj};
-    res.render('index', templateVars);
-    return;
+
+
+
+    return dispPolls(req.session.email)
+    .then((response) => {
+      console.log("iiiii");
+      console.log(response.rows);
+      userObj = {email : req.session.email, id : req.session.user_id };
+      const templateVars = {user : userObj, pData : response.rows};
+      res.render('index', templateVars);
+    })
+    .catch((e) => console.log('ERROR', e));
+
+    //tbridw
+    // userObj = {email : req.session.email, id : req.session.user_id };
+    // const templateVars = {user : userObj};
+    // res.render('index', templateVars);
+    // return;
   }
-  const templateVars = { user: userObj, messsage: message };
+  const templateVars = { user: userObj, message: message };
   res.render('login', templateVars);
 });
 
+
+//endpoint to handle GETs received at /
+router.get("/poll", (req, res) => {
+
+  let userObj;
+  let pD = [];
+  if ((req.session && req.session.email)) {
+
+    return dispPolls(req.session.email)
+    .then((response) => {
+      console.log("iiiii");
+      console.log(response.rows);
+      userObj = {email : req.session.email, id : req.session.user_id };
+      const templateVars = {user : userObj, pData : response.rows};
+      res.render('index', templateVars);
+    })
+    .catch((e) => console.log('ERROR', e));
+
+    //tbridw
+    // userObj = {email : req.session.email, id : req.session.user_id };
+    // const templateVars = {user : userObj};
+    // res.render('index', templateVars);
+    // return;
+
+  }
+
+  res.status(403).send('<h3>You must be logged in  </h3>');
+  return;
+});
 
 
 

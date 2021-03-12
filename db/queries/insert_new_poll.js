@@ -1,7 +1,7 @@
 const db = require('../db');
 
 const getNumOps = (id) => {
-  console.log("ID",id)
+  // console.log("ID",id)
   const queryString = `
   SELECT numops
   FROM polls
@@ -26,6 +26,7 @@ const insertNewPoll = (newPoll) => {
 
 //Inserts the admin_url and voting_url
 const updateURLs = (req) => {
+  // console.log("HERE",req);
   const queryString = `
   UPDATE polls
   SET admin_url = $1, voting_url = $2

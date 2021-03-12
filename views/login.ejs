@@ -3,7 +3,7 @@
 <head>
     <!-- Meta Information -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <title>Results Page</title>
+    <title>Login</title>
 
     <!-- External CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -31,16 +31,14 @@
     <h2> Welcome to Decision Maker Ultra </h2>
     <form class="login-container" action = "/login" method="POST">
       <div class="login-fields">
-        <!-- <label for = "email" >Email: </label> -->
+
         <input id=#login-input type = "email" name="email" placeholder="Enter your email" />
+        <span style = 'color: red; font-weight: bold'><%= message %></span>
       </div>
       <div class="login-fields">
-        <!-- <label for = "name">Enter name:</label> -->
+
         <input id=#login-input type = "text" name = "name" id = "name" placeholder="What's your name?"/>
       </div>
-      <!-- <label for="password">Password: </label>
-
-      <input type = "password" name="password"  /> -->
 
       <input type = "submit" value="Login" class = "btn btn-primary" />
 

@@ -10,6 +10,7 @@
      <!-- External CSS -->
      <link rel="preconnect" href="https://fonts.gstatic.com">
      <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
      <!-- jQuery and Bootstrap CDNs -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -31,20 +32,20 @@
   <body>
     <h1>Create a new poll</h1>
     <form class="mainContainer" action = "/poll/<%= user['id'] %>" method = "POST">
-      <div class="inputContainer">
+      <div>
         <label for = "title">What is this decision about?</label>
-        <input type="text" name = "title" id = "title" />
+        <input type="text" name = "title" required/>
       </>
-      <div class="inputContainer">
+      <div>
         <label for = "desc">Description</label>
-        <input type="text" name = "desc" id = "desc" />
+        <textarea type="text" name = "desc" id = "desc"></textarea>
       </div>
-      <div class="inputContainer">
+      <div>
         <label for = "nums" >How many options will there be?</label>
-        <input type="number" name = "nums"  min="1" class="inputContainer" id = "rank" />
+        <input type="number" name = "nums"  min="2" class="inputContainer" id = "rank" required/>
       </div>
 
-      <input type="submit" value="Submit" name = "submit" class="btn btn-danger" id="sub"/>
+      <input type="submit" value="Submit" name = "submit" class="btn btn-primary" id="sub"/>
 
 
   </body>

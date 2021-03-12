@@ -1,15 +1,15 @@
 // See: https://sass-lang.com/
 
-$dark-blue: #0A1128;
-$headertext-color: #1282A2;
-$yellow: #FF9E00;
-$btn-color: #FF9E00;
-$btn-hov: #663C00;
+$dark-blue: #0a1128;
+$headertext-color: #1282a2;
+$yellow: #ff9e00;
+$btn-color: #ff9e00;
+$btn-hov: #663c00;
 $font-size: 16px;
 $rank-font-size: 20px;
-$textbox-color: #FFEFD6;
-$textbox-hov-color: #FFE0AD;
-$bg-clr: #FFF7EB;
+$textbox-color: #ffefd6;
+$textbox-hov-color: #ffe0ad;
+$bg-clr: #fff7eb;
 
 @import "./_navbar.scss";
 @import "./_table.scss";
@@ -20,13 +20,11 @@ body {
   color: $dark-blue;
   align-items: center;
   padding-top: 90px;
-
 }
 h1 {
   color: $dark-blue;
   display: flex;
   justify-content: center;
-
 }
 h2 {
   @extend h1;
@@ -41,18 +39,34 @@ label {
   align-self: center;
   margin-top: 20px;
 }
+// Input field styling
 input {
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $dark-blue;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  outline: none;
   @extend .inputContainer;
-  // background-color: $textbox-color;
-  &:focus{
-    // background-color: $textbox-hov-color;
-    // box-shadow: 0 0 5pt 2pt #9c9b9b;
-    // outline-width: 0px;
+  &:focus {
+    box-shadow: 0 0 5pt 2pt #9c9b9b;
+    outline-width: 0px;
     background-color: $dark-blue;
     color: white;
-    outline: none
+    outline: none;
   }
-
+}
+#rank {
+  font-size: $rank-font-size;
+  width: 75px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+#name {
+  @extend .mainContainer;
+  @extend input;
+  width: 200px;
 }
 
 .inputContainer {
@@ -62,7 +76,9 @@ input {
   margin-bottom: 25px;
   font-size: $font-size;
   font-weight: 300;
-
+}
+div {
+  @extend .inputContainer;
 }
 .mainContainer {
   display: flex;
@@ -74,7 +90,6 @@ input {
   margin-left: 250px;
   margin-right: 250px;
 
-
   #voteLayout {
     width: 25%;
     display: flex;
@@ -83,21 +98,39 @@ input {
     align-self: center;
   }
 
-  #desc {
-    @extend .mainContainer;
-    padding-bottom: 50px;
+  .updateLayout {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    align-self: center;
+
+    #update {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
   }
 
-  #rank{
-    font-size: $rank-font-size;
-    width: 75px;
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-  #name {
+  #desc {
     @extend .mainContainer;
-    width: 200px;
+    @extend input;
+    &:focus {
+      color: white;
+    }
   }
+
+  // #rank{
+  //   font-size: $rank-font-size;
+  //   width: 75px;
+  //   margin-left: 15px;
+  //   margin-right: 15px;
+  // }
+  // #name {
+  //   @extend .mainContainer;
+  //   width: 200px;
+  // }
   #sub {
     @extend .mainContainer;
     display: flex;
@@ -107,7 +140,7 @@ input {
     align-items: center;
     align-self: center;
     color: white;
-    font-size: 20px
+    font-size: 20px;
   }
 
   .log-in-out {
@@ -118,87 +151,85 @@ input {
     color: white;
   }
 
-    #title {
-      @extend .mainContainer;
-      align-self: center;
-      width: 33%;
-    }
-    #desc {
-      @extend .mainContainer;
-      padding-bottom: 5em;
-    }
-    #nums {
-      @extend .mainContainer;
-      width: 5em;
-      margin-bottom: 1.5em;
-      align-self: center;
-    }
+  #title {
+    @extend .mainContainer;
+    align-self: center;
+    width: 33%;
+  }
+  #desc {
+    @extend .mainContainer;
+    padding-bottom: 5em;
+  }
+  #nums {
+    @extend .mainContainer;
+    width: 5em;
+    margin-bottom: 1.5em;
+    align-self: center;
+  }
+}
 
-  }
+.image-win {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  // vertical-align: middle;
+}
 
-  .image-win {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    vertical-align: middle;
-  }
+footer {
+  margin-bottom: 100px;
+}
 
-  footer {
-    margin-bottom: 100px;
-  }
+//login page specific css
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+}
 
-  //login page specific css
-  .login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 80px;
-  }
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.login-fields {
+  padding: 5px;
+}
 
-  .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-  .login-fields {
-    padding: 5px;
-  }
+// input text fields
+// input {
+//   border-radius: 5px;
+//   border-style: solid;
+//   border-width: 2px;
+//   border-color:$dark-blue;
+//   padding: 12px 20px;
+//   // margin: 8px 0;
+//   box-sizing: border-box;
+//   outline: none;
+// }
 
-  // input text fields
-  input {
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 2px;
-    border-color:$dark-blue;
-    padding: 12px 20px;
-    // margin: 8px 0;
-    box-sizing: border-box;
-    outline: none;
-  }
-
-  input[type=text]:focus {
-    background-color: $dark-blue;
-    color: white;
-    outline: none
-  }
-  input[type=email]:focus {
-    @extend input[type=text];
-  }
+// input[type=text]:focus {
+//   background-color: $dark-blue;
+//   color: white;
+//   outline: none
+// }
+// input[type=email]:focus {
+//   @extend input[type=text];
+// }
 
 // button styling
-  .btn-primary {
-    background-color: $yellow;
-    font-size: 20px;
-    border-radius: 5px;
-    border: none;
-    align-self: center;
-    align-items: center;
-  }
-
+.btn-primary {
+  background-color: $yellow;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  align-self: center;
+  align-items: center;
+}
 
 .logout-section {
   display: flex;
@@ -210,4 +241,31 @@ input {
   margin-right: 10px;
 }
 
+.page-title {
+  .final {
+    font-family: Shadows Into Light, sans-serif;
+    font-size: 50px;
+  }
+  .draft {
+    font-family: Shadows Into Light, sans-serif;
+    font-size: 25px;
+  }
+}
 
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+
+  .img {
+    width: 80%;
+  }
+}
+
+#crPoll {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}

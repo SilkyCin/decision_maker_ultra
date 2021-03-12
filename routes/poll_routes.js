@@ -25,6 +25,8 @@ router.post('/:u_id', (req, res) => {
   })
   .catch(er => console.log('ERROR',er))
 });
+
+//stores options in options table. handles the post request sent to store the options. post request received at /poll/user id/poll id
 router.post('/:u_id/:poll_id', (req, res) => {
   if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
     res.status(403).send('<h3>You must be logged in and have a valid poll id.</h3>');
@@ -40,13 +42,18 @@ router.post('/:u_id/:poll_id', (req, res) => {
 
   return getUserDetails(req.params)
   .then((resp) => {
+    console.log("hahahahaha");
     console.log(resp.rows);
-
+    console.log("sosos");
     const links = {admin : resp.rows[0].admin_url, voting : resp.rows[0].voting_url};
+    console.log("lolol");
     sendMail(resp.rows[0].email, resp.rows[0].name, links);
+    console.log("momomom");
     res.json('Done!');
   })
-  .catch(e => console.log(ERROR, e));
+  .catch((e) => {
+    console.log(ERROR, e);
+  })
   //
   //res.redirect(`/admin/${req.params.u_id}/${req.params.poll_id}`);
 

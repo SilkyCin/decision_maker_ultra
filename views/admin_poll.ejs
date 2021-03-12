@@ -2,16 +2,15 @@
 <html lang="en">
 
   <head>
-    <title>Admin Page</title>
+    <title>Create Poll</title>
 
      <!-- Meta Information -->
      <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-     <title>Results Page</title>
 
      <!-- External CSS -->
      <link rel="preconnect" href="https://fonts.gstatic.com">
      <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-
+     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
      <!-- jQuery and Bootstrap CDNs -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -36,22 +35,30 @@
   </form>
   <input type = "text" name = "poll_id" id = "poll_id" value = "<%= poll_id %>" hidden/>
   <input type = "text" name = "user_id" id = "user_id" value = "<%= user['id'] %>" hidden/>
-  <form action = "/poll/<%= user['id'] + '/' + poll_id %>" method = "POST" id = "pollForm" >
+  <form action = "/poll/<%= user['id'] + '/' + poll_id %>" method = "POST" class = "mainContainer" id = "pollForm" >
 
     <% for (let num = 1; num <= opNum; num++) { %>
-       <label for = "op<%= num %>">Option <%= num %></label>
-       <input type="text" name = "op<%= num %>" id = "option" />
+      <div class="inputContainer">
+        <label for = "op<%= num %>">Option <%= num %></label>
+        <input type="text" name = "op<%= num %>" id = "option" required/>
+      </div>
     <% } %>
 
-    <input id = "sub" type="submit" value = "submit" />
+    <input id = "sub" type="submit" value = "submit" class="btn btn-primary"/>
   </form>
-  <div id = "linksMsg">
-    <h4 >Your poll has been created. Below are 3 links which have been sent to you at the email address you provided</h4>
-    <label for = "admin_url">Admin URL</label>
-    <input type = "url" name = "admin_url" value = "/admin/<%= user['id'] + '/' + poll_id %>" />
+  <div class = "mainContainer" id = "linksMsg">
+    <div class= "inputContainer">
+      <h3 >Your poll has been created. Below are 3 links which have also been sent to you at the email address you provided</h3>
 
-    <label for = "admin_url" >Voting URL</label>
-    <input type = "url" name = "voting_url" value = "/vote/<%= poll_id %>" />
+      <label>Admin - do not share this url</label>
+      <input type = "text" value= "/admin/<%= user['id'] + '/' + poll_id %>" disabled/>
+
+      <label>Vote - Share this URL with your friends!</label>
+      <input type = "text" value="/vote/<%= poll_id %>" disabled/>
+
+      <label>Results - View the results</label>
+      <input type = "text" value = "/vote/<%= poll_id %>/results" disabled/>
+    </div>
   </div>
 
   <!-- <label for = "">Voting URL</label>
