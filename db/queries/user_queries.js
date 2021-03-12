@@ -32,15 +32,12 @@ const getUserDetails = (req) => {
   ON u.id = p.user_id
   WHERE p.id = $1;`;
   const queryParams = [req];
-  console.log("weh",queryParams)
   return db.query(queryString, queryParams)
   .then(res => res.rows[0]);
-
 };
 
 module.exports = {
   insertNewUser,
   getUser,
   getUserDetails
-
 };
