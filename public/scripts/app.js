@@ -52,6 +52,8 @@ function postOps (ops, poll_id, user_id) {
   })
 }
 
+
+
 $(document).ready(function() {
   $("#linksMsg").css({'display' : 'none'});
   $("#pollForm").submit(function(e) {
@@ -61,7 +63,8 @@ $(document).ready(function() {
     let user_id = $("#user_id").val();
     postOps(ops, poll_id, user_id);
 
-  })
+  });
+
 });
   // $("#mainStuff").css({'display':'none'});
   // $("#showForm").on('click', function () {

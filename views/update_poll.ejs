@@ -24,6 +24,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/update.js"></script>
 
     <%- include('partials/_header'); %>
   </head>
@@ -31,10 +32,11 @@
   <body>
     <h1>Admin</h1>
 
-  </form>
-  <form action = "/admin/<%= user['id'] + '/' + poll_id %>" method = "POST">
+  <input type = "text" name = "poll_id" id = "poll_id" value = "<%= poll_id %>" hidden/>
+  <input type = "text" name = "user_id" id = "user_id" value = "<%= user['id'] %>" hidden/>
 
-    <h4>Poll Topic and Description</h4>
+  <h3>Poll Topic and Description</h3>
+  <form action = "/admin/<%= user['id'] + '/' + poll_id %>" method = "POST">
 
       <label for = "title">Topic</label>
       <input type = "text" name = "title" value = "<%= results[0].title %>" />
@@ -42,23 +44,25 @@
       <label for = "desc">Description</label>
       <input type = "text" name = "desc" value = "<%= results[0].description %>" />
 
+      <input id = "sub" type="submit" value = "Update" />
+  </form>
 
-
-    <h4>Options</h4>
+  <h3>Options</h3>
     <%
       let c = 0;
       for (let r of results) {
         c++;
     %>
-
+  <form action = "/admin/<%= user['id'] + '/' + poll_id + '/' + r.id %>" id = "<%= r.id %>" class = "opForm" method = "POST">
       <label for = "<%= r.id %>">Option <%= c %></label>
       <input type = "text" name = "<%= r.id %>" value = "<%= r.choice %>" />
+      <input type = "submit" class = "del" id = "del_<%= r.id %>" value = "Delete" />
+      <input type = "submit" class = "upd" id = "upd_<%= r.id %>" value = "Update" />
       <br />
-
+  </form>
     <% } %>
 
-    <input id = "sub" type="submit" value = "Update" />
-  </form>
+
 
 
   </body>
