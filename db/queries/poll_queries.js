@@ -6,13 +6,11 @@ const getPollsByUserId = (userID) => {
   SELECT title, description, numops
   FROM polls
   WHERE user_id = $1;`;
-  const queryParams = [userID]
+  const queryParams = [userID];
   return db.query(queryString, queryParams)
-    .then((response) => {
-      return response.rows;
-    });
+    .then((response) => response.rows)
+    .catch(e => console.log(e));
 };
-
 //gets options for the poll specified by poll id
 const getOptionsByPollId = (req) => {
   const queryString = `
@@ -20,11 +18,10 @@ const getOptionsByPollId = (req) => {
   FROM options as o INNER JOIN polls as p
   ON o.poll_id = p.id
   WHERE o.poll_id = $1;`;
-  const queryParams = [req.poll_id]
+  const queryParams = [req.poll_id];
   return db.query(queryString, queryParams)
-    .then((response) => {
-      return response.rows;
-    });
+    .then((response) => response.rows)
+    .catch(e => console.log(e));
 };
 
 //gets options for the poll specified by poll id
@@ -34,9 +31,8 @@ const displayOptionsByPollId = (req) => {
   WHERE poll_id = $1;`;
   const queryParams = [req.poll_id];
   return db.query(queryString, queryParams)
-    .then((response) => {
-      return response.rows;
-    });
+    .then((response) => response.rows)
+    .catch(e => console.log(e));
 };
 
 const updatePollOptionsById = (id, choice) => {
@@ -46,7 +42,8 @@ const updatePollOptionsById = (id, choice) => {
   WHERE id = $1
   RETURNING *;`;
   const queryParams = [id, choice];
-  return db.query(queryString, queryParams);
+  return db.query(queryString, queryParams)
+    .catch(e => console.log(e));
 };
 
 const updatePollById = (p, req) => {
@@ -56,7 +53,8 @@ const updatePollById = (p, req) => {
   WHERE id = $3
   RETURNING *;`;
   const queryParams = [p.title, p.desc, req.poll_id];
-  return db.query(queryString, queryParams);
+  return db.query(queryString, queryParams)
+    .catch(e => console.log(e));
 };
 
 const displayTitleByPollId = (req) => {
@@ -67,7 +65,7 @@ const displayTitleByPollId = (req) => {
   const queryParams = [id];
   return db.query(queryString, queryParams)
     .then((response) => response.rows[0])
-    .catch((e) => console.log(e));
+    .catch(e => console.log(e));
 };
 
 const deletePollById = (id) => {
@@ -76,9 +74,19 @@ const deletePollById = (id) => {
   WHERE poll.id = $1;`;
   const queryParams = id;
   return db.query(queryString)
-    .then((response) => response.rows);
+    .then((response) => response.rows)
+    .catch(e => console.log(e));
 };
 
+const getNumOps = (id) => {
+  const queryString = `
+  SELECT numops
+  FROM polls
+  WHERE id = $1;`;
+  const queryParams = [id];
+  return db.query(queryString, queryParams)
+    .then((res) => res.rows[0].numops);
+};
 
 module.exports = {
   getPollsByUserId,
@@ -88,4 +96,5 @@ module.exports = {
   updatePollById,
   deletePollById,
   displayTitleByPollId,
+  getNumOps
 };

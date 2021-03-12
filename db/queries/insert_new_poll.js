@@ -1,14 +1,5 @@
 const db = require('../db');
 
-const getNumOps = (id) => {
-  const queryString = `
-  SELECT numops
-  FROM polls
-  WHERE id = $1;`;
-  const queryParams = [id]
-  return db.query(queryString, queryParams)
-  .then((res) => res.rows[0].numops);
-};
 
 //Inserts the user_id, title and description of a new poll
 const insertNewPoll = (newPoll) => {
@@ -18,10 +9,8 @@ const insertNewPoll = (newPoll) => {
   RETURNING *;`;
   const queryParams = [newPoll.user_id, newPoll.title, newPoll.desc, newPoll.nums];
   return db.query(queryString, queryParams)
-  .then((res) => {
-      return res.rows;
-  })
-  .catch(er => console.log('ERROR',er));
+    .then((res) => res.rows)
+    .catch(e => console.log(e));
 };
 
 //Inserts the admin_url and voting_url
@@ -33,10 +22,10 @@ const updateURLs = (req) => {
   RETURNING *;`;
   const queryParams = [`/admin/${req.u_id}/${req.poll_id}`, `/vote/${req.poll_id}`, req.poll_id];
   return db.query(queryString, queryParams)
-  .then((res) => {
-    return res.rows;
-  })
-  .catch(e => console.log(e));
+    .then((res) => {
+      return res.rows;
+    })
+    .catch(e => console.log(e));
 };
 
 //Inserts options one at a time into the options table
@@ -47,7 +36,7 @@ const insertOptions = (data) => {
   RETURNING *`;
   const queryParams = [data.poll_id, data.choice];
   return db.query(queryString, queryParams)
-  .catch(e => console.log(e));
+    .catch(e => console.log(e));
 };
 
 
@@ -55,5 +44,4 @@ module.exports = {
   insertNewPoll,
   updateURLs,
   insertOptions,
-  getNumOps
 };

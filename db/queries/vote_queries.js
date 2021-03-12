@@ -9,11 +9,10 @@ const getVotesByPollId = (pollID) => {
   JOIN options ON option_id = options.id
   WHERE poll_id = $1;
   GROUP BY choice;`;
-  const queryParams = [pollID]
-  return db.query( queryString, queryParams)
-    .then((response) => {
-      return response.rows[0];
-    });
+  const queryParams = [pollID];
+  return db.query(queryString, queryParams)
+    .then((response) => response.rows[0])
+    .catch(e => console.log(e));
 };
 
 // Show the results of one poll using the Borda Count tournament style ranking method
@@ -28,11 +27,9 @@ const getResultsByPollId = (pollID) => {
   order by points_per_choice DESC;`;
   const queryParams = [id];
   return db.query(queryString, queryParams)
-    .then((response) => {
-      return response.rows;
-    });
+    .then((response) => response.rows)
+    .catch(e => console.log(e));
 };
-
 
 // Inserting new votes
 const storeResultsByPollId = (pollID) => {
@@ -42,9 +39,8 @@ const storeResultsByPollId = (pollID) => {
   RETURNING *;`;
   const queryParams = pollID;
   return db.query(queryString, queryParams)
-    .then((response) => {
-      return response;
-    });
+    .then((response) => response)
+    .catch(e => console.log(e));
 };
 
 // (stretch) show the results of all polls created by one user

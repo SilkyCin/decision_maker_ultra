@@ -31,7 +31,8 @@
 <body>
   <h1>Help <%=name%> make a decision</h1>
   <form class="mainContainer" action="/vote/<%= p_id %>" method="POST">
-    <h2>Rank your favourite <%=title%> 1st to last</h2>
+    <h2>Rank your favourite <%=title%> from 1 to <%=totalChoices%></h2>
+    <h2>with 1 being your top choice</h2>
     <h3>
       <%=desc%>
     </h3>

@@ -24,5 +24,6 @@ input {
 }
 #name {
   @extend .mainContainer;
+  @extend input;
   width: 200px;
 }
