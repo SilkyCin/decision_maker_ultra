@@ -1,68 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Admin</title>
 
-    <!-- Meta Information -->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+<head>
+  <title>Admin</title>
 
-    <!-- External CSS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <!-- Meta Information -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
-    <!-- jQuery and Bootstrap CDNs -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- External CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet">
 
-    <!-- App CSS -->
-    <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
-    <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- jQuery and Bootstrap CDNs -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <%- include('partials/_header'); %>
-  </head>
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <body>
-    <h1>Admin Page</h1>
+  <%- include('partials/_header'); %>
+</head>
 
+<body>
+  <h1>Admin Page</h1>
   </form>
-  <form action = "/admin/<%= user['id'] + '/' + poll_id %>" method = "POST" class = "mainContainer">
-
+  <form action="/admin/<%= user['id'] + '/' + poll_id %>" method="POST" class="mainContainer">
     <h3>Update Topic and Description</h3>
     <div>
-      <label for = "title">Topic</label>
-      <input type = "text" name = "title" value = "<%= results[0].title %>" />
-      </div>
-      <div>
-      <label for = "desc">Description</label>
-      <input type = "text" name = "desc" value = "<%= results[0].description %>" />
+      <label for="title">Topic</label>
+      <input type="text" name="title" value="<%= results[0].title %>" />
     </div>
-
-
+    <div>
+      <label for="desc">Description</label>
+      <input type="text" name="desc" value="<%= results[0].description %>" />
+    </div>
     <h2>Update Options</h2>
-    <section class="updateLayout" >
-    <%
-      let c = 0;
-      for (let r of results) {
-        c++;
-    %>
-    <div id = "update">
-      <label for = "<%= r.id %>">Option: <%= r.choice %></label>
-      <input type = "text" name = "<%= r.id %>" value = "<%= r.choice %>" />
-      <br />
-    </div>
-    <% } %>
-  </section>
-
-    <input id = "sub" type="submit" value = "Update" class = "btn btn-primary" />
+    <section class="updateLayout">
+      <% let c=0; for (let r of results) { c++; %>
+        <div id="update">
+          <label for="<%= r.id %>">Option: <%= r.choice %></label>
+          <input type="text" name="<%= r.id %>" value="<%= r.choice %>" />
+          <br />
+        </div>
+        <% } %>
+    </section>
+    <input id="sub" type="submit" value="Update" class="btn btn-primary" />
   </form>
+</body>
 
-
-  </body>
 </html>
