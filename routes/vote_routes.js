@@ -9,24 +9,6 @@ const { getUserDetails } = require('../db/queries/user_queries')
 // get the poll needed to be voted on
 router.get('/:poll_id', (req, res) => {
 const id = Number(req.params.poll_id);
-// console.log(req.params)
-// const votePkg = [displayOptionsByPollId(req.params), getNumOps(id), displayTitleByPollId(req.params), getUserDetails(id)]
-// Promise.all(votePkg)
-// .then(response => {
-//   console.log("!!!!!!!!!!!!RESPONSE**************", response)
-//   const templateVars = {
-//     ops : response[0],
-//     p_id : id,
-//     totalChoices: response[1],
-//     user : userObj,
-//     title: response[2].title,
-//     desc: response[2].description
-//     // uName:
-//   };
-//   console.log("TEMPLATEVARS",templateVars)
-//   // res.render('vote_page', templateVars);
-// })
-// .catch(e => res.send(e));
 
 displayOptionsByPollId(req.params)
   .then((options) => {
@@ -34,13 +16,12 @@ displayOptionsByPollId(req.params)
       getNumOps(id)
       .then(totalChoices => {
           let userObj;
-
           console.log("req.params:", req.params)
           displayTitleByPollId(req.params)
           .then(response => {
             getUserDetails(id)
             .then(x => {
-              console.log("XXXXXXXX",x);
+              console.log("XXXXXXXX", x);
               const templateVars = {
                 ops : options,
                 p_id : req.params.poll_id,
@@ -58,14 +39,12 @@ displayOptionsByPollId(req.params)
             console.log("totalChoices", totalChoices)
             })
           })
-
     // console.log(templateVars);
     })
     .catch(e => {
       console.error(e);
       res.send(e);
     });
-
 });
 
 
@@ -121,10 +100,15 @@ router.post('/:poll_id', (req, res) => {
     if (!isNaN(optionID) && !isNaN(pri)) {
       const queryParams = [id, optionID, pri, votes.guest_name];
       storeResultsByPollId(queryParams)
-        .catch(e => res.send(e))
+      .then((response) => {
+        console.log("ikikikkik");
+        console.log(response);
+        console.log("test_cdcdcdcdc");
+      })
+      .catch(e => res.send(e))
     }
   }
-  res.redirect(`/vote/${id}/results`);
+  //res.redirect(`/vote/${id}/results`);
 });
 
 

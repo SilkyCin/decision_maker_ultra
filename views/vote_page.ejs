@@ -23,13 +23,16 @@
     <!-- App JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/results.js"></script>
 
-    <%- include('partials/_header'); %>
+
   </head>
 
   <body>
     <h1>Help <%=name%> make a decision</h1>
-    <form class="mainContainer" action = "/vote/<%= p_id %>" method = "POST">
+    <input type = "text" value = "<%= p_id %>" id = "poll_id" hidden />
+    <form class="mainContainer" action = "/vote/<%= p_id %>" method = "POST" id = "voterForm">
+
       <h2>Rank your favourite <%=title%> 1st to last</h2>
       <h3><%=desc%></h3>
       <div id="voteLayout">
@@ -43,9 +46,16 @@
         <div >
          <label >Your Name<br>(Optional)</label>
          <input type="text" name = 'guest_name' id="name">
-       </div >
-      <input type="submit" value="Vote!" name = "submit" class="btn btn-primary" id="sub"/>
+       </div>
+      <input type="submit" value="Vote!" name = "submit" class="btn btn-primary" id="sub" />
+
     </form>
+
+    <div id = "voteMessage">
+      <a href = "/vote/<%= p_id %>/results" >
+        <input type="button" value="View Results" class="btn btn-primary" id="resButton" />
+      </a>
+    </div>
 
   </body>
 </html>

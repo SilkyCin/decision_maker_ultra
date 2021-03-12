@@ -24,11 +24,11 @@ const { getOptionsByPollId, updatePollOptionsById, updatePollById, deletePollByI
 // });
 //update poll fields and options
 router.post('/:u_id/:poll_id', (req, res) => {
-  let userObj;
-  if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
-    res.status(403).send('<h3>You must be logged in as the admin and have an active poll id.</h3>');
-    return;
-  }
+  // let userObj;
+  // if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
+  //   res.status(403).send('<h3>You must be logged in as the admin and have an active poll id.</h3>');
+  //   return;
+  // }
 
   console.log(req.body);
   const data = req.body;

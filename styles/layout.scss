@@ -1,19 +1,13 @@
 // See: https://sass-lang.com/
-
-$dark-blue: #0a1128;
-$headertext-color: #1282a2;
-$yellow: #ff9e00;
-$btn-color: #ff9e00;
-$btn-hov: #663c00;
-$font-size: 16px;
-$rank-font-size: 20px;
-$textbox-color: #ffefd6;
-$textbox-hov-color: #ffe0ad;
-$bg-clr: #fff7eb;
-
+@import "./_variables.scss";
 @import "./_navbar.scss";
 @import "./_table.scss";
-
+@import "./_inputs.scss";
+@import "./_loginOut.scss";
+@import "./_createPoll.scss";
+@import "./_button.scss";
+@import "./_containers.scss";
+@import "./image.scss";
 body {
   background-color: $bg-clr;
   font-size: $font-size;
@@ -21,16 +15,12 @@ body {
   align-items: center;
   padding-top: 90px;
 }
-h1 {
+h1,
+h2,
+h3 {
   color: $dark-blue;
   display: flex;
   justify-content: center;
-}
-h2 {
-  @extend h1;
-}
-h3 {
-  @extend h1;
 }
 label {
   @extend .inputContainer;
@@ -39,233 +29,9 @@ label {
   align-self: center;
   margin-top: 20px;
 }
-// Input field styling
-input {
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: $dark-blue;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  outline: none;
-  @extend .inputContainer;
-  &:focus {
-    box-shadow: 0 0 5pt 2pt #9c9b9b;
-    outline-width: 0px;
-    background-color: $dark-blue;
-    color: white;
-    outline: none;
-  }
-}
-#rank {
-  font-size: $rank-font-size;
-  width: 75px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-#name {
-  @extend .mainContainer;
-  @extend input;
-  width: 200px;
-}
-
-.inputContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 25px;
-  font-size: $font-size;
-  font-weight: 300;
-}
 div {
   @extend .inputContainer;
 }
-.mainContainer {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  color: $dark-blue;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  margin-left: 250px;
-  margin-right: 250px;
-
-  #voteLayout {
-    width: 25%;
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row wrap;
-    align-self: center;
-  }
-
-  .updateLayout {
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    flex-flow: row wrap;
-    align-self: center;
-
-    #update {
-      margin-top: 15px;
-      margin-bottom: 15px;
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-  }
-
-  #desc {
-    @extend .mainContainer;
-    @extend input;
-    &:focus {
-      color: white;
-    }
-  }
-
-  // #rank{
-  //   font-size: $rank-font-size;
-  //   width: 75px;
-  //   margin-left: 15px;
-  //   margin-right: 15px;
-  // }
-  // #name {
-  //   @extend .mainContainer;
-  //   width: 200px;
-  // }
-  #sub {
-    @extend .mainContainer;
-    display: flex;
-    flex-direction: column;
-    margin-left: 10em;
-    margin-right: 10em;
-    align-items: center;
-    align-self: center;
-    color: white;
-    font-size: 20px;
-  }
-
-  .log-in-out {
-    @extend .mainContainer;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    color: white;
-  }
-
-  #title {
-    @extend .mainContainer;
-    align-self: center;
-    width: 33%;
-  }
-  #desc {
-    @extend .mainContainer;
-    padding-bottom: 5em;
-  }
-  #nums {
-    @extend .mainContainer;
-    width: 5em;
-    margin-bottom: 1.5em;
-    align-self: center;
-  }
-}
-
-.image-win {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  // vertical-align: middle;
-}
-
 footer {
   margin-bottom: 100px;
-}
-
-//login page specific css
-.login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 80px;
-}
-
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-.login-fields {
-  padding: 5px;
-}
-
-// input text fields
-// input {
-//   border-radius: 5px;
-//   border-style: solid;
-//   border-width: 2px;
-//   border-color:$dark-blue;
-//   padding: 12px 20px;
-//   // margin: 8px 0;
-//   box-sizing: border-box;
-//   outline: none;
-// }
-
-// input[type=text]:focus {
-//   background-color: $dark-blue;
-//   color: white;
-//   outline: none
-// }
-// input[type=email]:focus {
-//   @extend input[type=text];
-// }
-
-// button styling
-.btn-primary {
-  background-color: $yellow;
-  font-size: 20px;
-  border-radius: 5px;
-  border: none;
-  align-self: center;
-  align-items: center;
-}
-
-.logout-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-self: center;
-  align-items: center;
-  color: white;
-  margin-right: 10px;
-}
-
-.page-title {
-  .final {
-    font-family: Shadows Into Light, sans-serif;
-    font-size: 50px;
-  }
-  .draft {
-    font-family: Shadows Into Light, sans-serif;
-    font-size: 25px;
-  }
-}
-
-.landing-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 80%;
-  margin: auto;
-
-  .img {
-    width: 80%;
-  }
-}
-
-#crPoll {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
 }
