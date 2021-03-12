@@ -47,8 +47,8 @@ input {
 
   &:focus{
     // background-color: $textbox-hov-color;
-    // box-shadow: 0 0 5pt 2pt #9c9b9b;
-    // outline-width: 0px;
+    box-shadow: 0 0 5pt 2pt #9c9b9b;
+    outline-width: 0px;
     background-color: $dark-blue;
     color: white;
     outline: none
@@ -64,6 +64,9 @@ input {
   font-size: $font-size;
   font-weight: 300;
 
+}
+div {
+  @extend .inputContainer;
 }
 .mainContainer {
   display: flex;
@@ -84,9 +87,25 @@ input {
     align-self: center;
   }
 
+  .updateLayout {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    align-self: center;
+
+    #update {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+
   #desc {
     @extend .mainContainer;
-    padding-bottom: 50px;
+    @extend input;
+    color: white;
   }
 
   #rank{

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Admin Page</title>
+    <title>Admin</title>
 
-    < <!-- Meta Information -->
+    <!-- Meta Information -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <title>Results Page</title>
 
     <!-- External CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -29,48 +28,40 @@
   </head>
 
   <body>
-    <h1>Admin</h1>
+    <h1>Admin Page</h1>
 
   </form>
-  <form action = "/admin/<%= user['id'] + '/' + poll_id %>" method = "POST">
+  <form action = "/admin/<%= user['id'] + '/' + poll_id %>" method = "POST" class = "mainContainer">
 
-    <h4>Poll Topic and Description</h4>
-
+    <h3>Update Topic and Description</h3>
+    <div>
       <label for = "title">Topic</label>
       <input type = "text" name = "title" value = "<%= results[0].title %>" />
-
+      </div>
+      <div>
       <label for = "desc">Description</label>
       <input type = "text" name = "desc" value = "<%= results[0].description %>" />
+    </div>
 
 
-
-    <h4>Options</h4>
+    <h2>Update Options</h2>
+    <section class="updateLayout" >
     <%
       let c = 0;
       for (let r of results) {
         c++;
     %>
-
-      <label for = "<%= r.id %>">Option <%= c %></label>
+    <div id = "update">
+      <label for = "<%= r.id %>">Option: <%= r.choice %></label>
       <input type = "text" name = "<%= r.id %>" value = "<%= r.choice %>" />
       <br />
-
+    </div>
     <% } %>
+  </section>
 
-    <input id = "sub" type="submit" value = "Update" />
+    <input id = "sub" type="submit" value = "Update" class = "btn btn-primary" />
   </form>
 
 
   </body>
 </html>
-
- <!-- Option 0 <input type="text" name = "op0" id = "option">
-    Option 1 <input type="text" name = "op1" id = "option">
-    Option 2 <input type="text" name = "op2" id = "option">
-    Option 3 <input type="text" name = "op3" id = "option">
-    Option 4 <input type="text" name = "op4" id = "option">
-    Option 5 <input type="text" name = "op5" id = "option">
-    Option 6 <input type="text" name = "op6" id = "option">
-    Option 7 <input type="text" name = "op7" id = "option">
-    Option 8 <input type="text" name = "op8" id = "option">
-    Option 9 <input type="text" name = "op9" id = "option"> -->

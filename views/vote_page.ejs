@@ -34,13 +34,13 @@
       <h3><%=desc%></h3>
       <div id="voteLayout">
         <% for (let op of ops) { %>
-          <div class="inputContainer">
+          <div >
             <label class="inputContainer"><%= op.choice %> </label>
             <input type="number" name = '<%= op.id %>' id = "rank" min=1 max=<%=totalChoices%> required>
           </div>
           <% } %>
         </div>
-        <div class="inputContainer">
+        <div >
          <label >Your Name<br>(Optional)</label>
          <input type="text" name = 'guest_name' id="name">
        </div >

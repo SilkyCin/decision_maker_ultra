@@ -31,20 +31,20 @@
   <body>
     <h1>Create a new poll</h1>
     <form class="mainContainer" action = "/poll/<%= user['id'] %>" method = "POST">
-      <div class="inputContainer">
+      <div>
         <label for = "title">What is this decision about?</label>
-        <input type="text" name = "title" id = "title" />
+        <input type="text" name = "title" required/>
       </>
-      <div class="inputContainer">
+      <div>
         <label for = "desc">Description</label>
-        <input type="text" name = "desc" id = "desc" />
+        <textarea type="text" name = "desc" id = "desc"></textarea>
       </div>
-      <div class="inputContainer">
+      <div>
         <label for = "nums" >How many options will there be?</label>
-        <input type="number" name = "nums"  min="1" class="inputContainer" id = "rank" />
+        <input type="number" name = "nums"  min="1" class="inputContainer" id = "rank" required/>
       </div>
 
-      <input type="submit" value="Submit" name = "submit" class="btn btn-danger" id="sub"/>
+      <input type="submit" value="Submit" name = "submit" class="btn btn-primary" id="sub"/>
 
 
   </body>

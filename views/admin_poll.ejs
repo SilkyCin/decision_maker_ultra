@@ -2,11 +2,10 @@
 <html lang="en">
 
   <head>
-    <title>Admin Page</title>
+    <title>Create Poll</title>
 
      <!-- Meta Information -->
      <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-     <title>Results Page</title>
 
      <!-- External CSS -->
      <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -35,22 +34,28 @@
   </form>
   <input type = "text" name = "poll_id" id = "poll_id" value = "<%= poll_id %>" hidden/>
   <input type = "text" name = "user_id" id = "user_id" value = "<%= user['id'] %>" hidden/>
-  <form action = "/poll/<%= user['id'] + '/' + poll_id %>" method = "POST" id = "pollForm" >
+  <form action = "/poll/<%= user['id'] + '/' + poll_id %>" method = "POST" class = "mainContainer" id = "pollForm" >
 
     <% for (let num = 1; num <= opNum; num++) { %>
+      <div class="inputContainer">
        <label for = "op<%= num %>">Option <%= num %></label>
        <input type="text" name = "op<%= num %>" id = "option" required/>
-    <% } %>
+    </div>
+       <% } %>
 
     <input id = "sub" type="submit" value = "submit" class="btn btn-primary"/>
   </form>
-  <div id = "linksMsg">
-    <h4 >Your poll has been created. Below are 3 links which have been sent to you at the email address you provided</h4>
-    <label for = "admin_url">Admin URL</label>
-    <input type = "url" name = "admin_url" value = "/admin/<%= user['id'] + '/' + poll_id %>" />
+  <div class = "mainContainer" id = "linksMsg">
+    <div class= "inputContainer">
+    <h3 >Your poll has been created. Below are 3 links which have also been sent to you at the email address you provided</h3>
+    <label>Admin - do not share this url</label>
+    <a href="/admin/<%= user['id'] + '/' + poll_id %>">/admin/<%= user['id'] + '/' + poll_id %></a>
+    <label>Vote - Share this URL with your friends!</label>
+    <a href="/vote/<%= poll_id %>">/vote/<%= poll_id %></a>
+    <label>Results - View the results</label>
+    <a href="/vote/<%= poll_id %>/results">/vote/<%= poll_id %>/results</a>
+  </div>
 
-    <label for = "admin_url" >Voting URL</label>
-    <input type = "url" name = "voting_url" value = "/vote/<%= poll_id %>" />
   </div>
 
   <!-- <label for = "">Voting URL</label>
