@@ -70,23 +70,6 @@ router.get("/", (req, res) => {
   return;
 });
 
-//endpoint to handle GETs received at /
-router.get("/poll", (req, res) => {
-
-  let userObj;
-  if ((req.session && req.session.email)) {
-    userObj = {email : req.session.email, id : req.session.user_id };
-    const templateVars = {user : userObj};
-    res.render('index', templateVars);
-    return;
-    // res.status(403).send('<h3>You must be logged in  </h3>');
-    // return;
-  }
-
-  res.status(403).send('<h3>You must be logged in  </h3>');
-  return;
-});
-
 
 //handles Get requests received at '/login'
 router.get('/login', (req, res) => {

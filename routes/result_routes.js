@@ -14,12 +14,12 @@ router.get('/:poll_id/results', (req, res) => {
       }
 
       for (const result of results) {
-        let percent = (result.total_points/sum *100).toFixed(2);
+        let percent = (result.total_points / sum * 100).toFixed(2);
         let resultObj = { ...result, percent };
         percentArr.push(resultObj);
       }
 
-      console.log("percentArr: ", percentArr)
+      console.log("percentArr: ", percentArr);
       // passing object with value percentArr to be rendered on page
       res.render('result_page', {results: percentArr}); //will likely want to change to res.render once pages are set up
     })
