@@ -1,0 +1,22 @@
+//Classes associated with login and logout
+.logout-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  align-items: center;
+  color: white;
+  margin-right: 10px;
+}
+.log-in-out {
+  @extend .mainContainer;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  color: white;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}

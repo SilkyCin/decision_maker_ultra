@@ -5,11 +5,11 @@
 
      <!-- Meta Information -->
      <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-     <title>Results Page</title>
 
      <!-- External CSS -->
      <link rel="preconnect" href="https://fonts.gstatic.com">
      <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
      <!-- jQuery and Bootstrap CDNs -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,8 +17,6 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
      <!-- App CSS -->
-     <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
-     <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
      <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
      <!-- App JS -->
@@ -31,20 +29,20 @@
   <body>
     <h1>Create a new poll</h1>
     <form class="mainContainer" action = "/poll/<%= user['id'] %>" method = "POST">
-      <div class="inputContainer">
-        <label for = "title">What is this decision about?</label>
-        <input type="text" name = "title" id = "title" />
-      </>
-      <div class="inputContainer">
-        <label for = "desc">Description</label>
-        <input type="text" name = "desc" id = "desc" />
+      <div>
+        <label for="title">What is this decision about?</label>
+        <input type="text" name="title" required/>
       </div>
-      <div class="inputContainer">
-        <label for = "nums" >How many options will there be?</label>
-        <input type="number" name = "nums"  min="1" class="inputContainer" id = "rank" />
+      <div>
+        <label for="desc">Description</label>
+        <textarea type="text" name="desc" id="desc"></textarea>
+      </div>
+      <div>
+        <label for="nums" >How many options will there be?</label>
+        <input type="number" name="nums"  min="1" class="inputContainer" id="rank" required/>
       </div>
 
-      <input type="submit" value="Submit" name = "submit" class="btn btn-danger" id="sub"/>
+      <input type="submit" value="Submit" name="submit" class="btn btn-primary" id="sub"/>
 
 
   </body>
