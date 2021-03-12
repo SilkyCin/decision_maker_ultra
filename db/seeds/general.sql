@@ -1,10 +1,10 @@
 -- Users table seeds here (Example)
-INSERT INTO users (name, email) VALUES (‘Jack’, 'jack@mail.com’);
-INSERT INTO users (name, email) VALUES (‘Kira’, 'kira@aol.com’);
-INSERT INTO users (name, email) VALUES (‘John’, 'john@something.com’);
-INSERT INTO users (name, email) VALUES (‘Brett’, 'brett@outlook.com’);
-INSERT INTO users (name, email) VALUES (‘Susan’, 'S@a.com`);
-INSERT INTO users (name, email) VALUES (‘Jessica’, 'jess@google.com’);
+INSERT INTO users (name, email) VALUES ('Jack', 'jack@mail.com');
+INSERT INTO users (name, email) VALUES ('Kira', 'kira@aol.com');
+INSERT INTO users (name, email) VALUES ('John', 'john@something.com');
+INSERT INTO users (name, email) VALUES ('Brett', 'brett@outlook.com');
+INSERT INTO users (name, email) VALUES ('Susan', 'S@a.com');
+INSERT INTO users (name, email) VALUES ('Jessica', 'jess@google.com');
 INSERT INTO polls (user_id, title, description, admin_url, voting_url, numops) VALUES (1, ‘colors poll’, ‘poll about colors’, ‘hello’, ‘jajaja’, 7);
 INSERT INTO polls (user_id, title, description, admin_url, voting_url, numops) VALUES (3, ‘animals poll’, ‘poll about animals’, ‘jellosadsasd’, ‘hajaja’, 4);
 INSERT INTO polls (user_id, title, description, admin_url, voting_url, numops) VALUES (2, ‘presidents poll’, ‘poll about pres’, ‘sellds’, ‘dajaja’, 7);
