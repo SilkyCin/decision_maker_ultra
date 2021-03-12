@@ -3,36 +3,61 @@ const router = express.Router();
 const { getNumOps } = require('../db/queries/insert_new_poll');
 const { displayOptionsByPollId, displayTitleByPollId } = require('../db/queries/poll_queries');
 const { storeResultsByPollId, getResultsByPollId} = require('../db/queries/vote_queries');
+const { getUserDetails } = require('../db/queries/user_queries')
 
 
 // get the poll needed to be voted on
 router.get('/:poll_id', (req, res) => {
 const id = Number(req.params.poll_id);
+// console.log(req.params)
+// const votePkg = [displayOptionsByPollId(req.params), getNumOps(id), displayTitleByPollId(req.params), getUserDetails(id)]
+// Promise.all(votePkg)
+// .then(response => {
+//   console.log("!!!!!!!!!!!!RESPONSE**************", response)
+//   const templateVars = {
+//     ops : response[0],
+//     p_id : id,
+//     totalChoices: response[1],
+//     user : userObj,
+//     title: response[2].title,
+//     desc: response[2].description
+//     // uName:
+//   };
+//   console.log("TEMPLATEVARS",templateVars)
+//   // res.render('vote_page', templateVars);
+// })
+// .catch(e => res.send(e));
 
-  displayOptionsByPollId(req.params)
-
-    .then((options) => {
+displayOptionsByPollId(req.params)
+  .then((options) => {
       // console.log(options);
       getNumOps(id)
       .then(totalChoices => {
-        let userObj;
-        console.log("req.params:", req.params)
-        displayTitleByPollId(req.params)
-        .then(response => {
-          console.log(response)
-          const templateVars = {
-            ops : options,
-            p_id : req.params.poll_id,
-            totalChoices: totalChoices,
-            user : userObj,
-            title: response.title,
-            desc: response.description
-          };
-        console.log("totalChoices", totalChoices)
-        console.log(templateVars);
-        res.render('vote_page', templateVars);
-        })
-      })
+          let userObj;
+
+          console.log("req.params:", req.params)
+          displayTitleByPollId(req.params)
+          .then(response => {
+            getUserDetails(id)
+            .then(x => {
+              console.log("XXXXXXXX",x);
+              const templateVars = {
+                ops : options,
+                p_id : req.params.poll_id,
+                totalChoices: totalChoices,
+                user : userObj,
+                title: response.title,
+                desc: response.description,
+                name: x.name
+              };
+              console.log(templateVars);
+              res.render('vote_page', templateVars);
+
+            })
+            console.log(response)
+            console.log("totalChoices", totalChoices)
+            })
+          })
 
     // console.log(templateVars);
     })

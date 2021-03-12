@@ -10,15 +10,15 @@ const { insertNewUser } = require('../db/queries/user_queries.js');
 router.post('/login', (req, res) => {
 
   const newUser = req.body;
-  console.log(newUser);
+  // console.log(newUser);
   return insertNewUser(newUser)
   .then((results) => {
     req.session.email = results[0].email;
     req.session.user_id = results[0].id;
-    console.log(req.session.user_id);
-    console.log("bubub");
-    console.log(results);
-    console.log(req.session.email);
+    // console.log(req.session.user_id);
+    // console.log("bubub");
+    // console.log(results);
+    // console.log(req.session.email);
     userObj = {email : req.session.email, id : req.session.user_id };
     const templateVars = {user : userObj};
     res.render('index', templateVars);

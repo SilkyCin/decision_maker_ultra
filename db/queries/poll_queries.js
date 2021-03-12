@@ -55,7 +55,7 @@ const displayOptionsByPollId = (req) => {
 };
 const displayTitleByPollId = (req) => {
   const id = Number(req.poll_id);
-  console.log("monkeyfuzz:", req)
+  // console.log("monkeyfuzz:", req)
 
   return db.query(`
   SELECT title, description FROM polls

@@ -60,9 +60,9 @@ router.get('/:u_id', (req, res) => {
   }
   return getUser(req.params.u_id)
   .then((resp) => {
-    console.log("lplplplpl");
-    console.log(resp);
-    console.log(resp['email']);
+    // console.log("lplplplpl");
+    // console.log(resp);
+    // console.log(resp['email']);
     const templateVars = {user : resp};
     res.render('create_poll', templateVars);
   })
@@ -77,7 +77,7 @@ router.get('/:u_id/:poll_id', (req, res) => {
   }
   return updateURLs(req.params)
   .then((results) => {
-    console.log(results);
+    // console.log(results);
     userObj = {email : req.session.email, id : req.session.user_id };
     const templateVars = {user: userObj, poll_id: req.params.poll_id, opNum : results[0].numops}
     res.render('admin_poll', templateVars)

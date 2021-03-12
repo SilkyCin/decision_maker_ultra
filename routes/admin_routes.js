@@ -17,12 +17,12 @@ router.post('/:u_id/:poll_id', (req, res) => {
   delete data.desc;
   const opsData = data;
   for (let i in opsData) {
-     console.log(i);
-     console.log("sd");
+    //  console.log(i);
+    //  console.log("sd");
      updatePollOptionsById(i, opsData[i])
      .then((response) => {
-       console.log(response.rows);
-       console.log("kmkmkmkm")
+      //  console.log(response.rows);
+      //  console.log("kmkmkmkm")
      })
      .catch(e => {
        console.log(ERROR, e)
@@ -30,8 +30,8 @@ router.post('/:u_id/:poll_id', (req, res) => {
   }
   updatePollById(pollData, req.params)
   .then((response) => {
-    console.log(response.rows);
-    console.log("cvcvcvcv")
+    // console.log(response.rows);
+    // console.log("cvcvcvcv")
   })
   .catch(e => console.log(ERROR, e));
 });
