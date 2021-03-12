@@ -37,12 +37,10 @@
           <th>Delete Poll</th>
         </tr>
         <tbody>
-          <% for (let__in___) { %>
+          <% for (const obj of results) { %>
           <tr>
-            <td></td>
-            <td></td>
-            <td><form method="GET" action="/something/<%= (variable) %>"><button type="submit" class="btn btn-primary">Edit</button></form></td>
-            <td><form method="POST" action="/something/<%= (variable) %>/delete"><button type="submit" class="btn btn-primary">Delete</button></form></td>
+            <td><%= obj.title %></td>
+            <td><%= obj.description %></td>
           </tr>
           <% } %>
         </tbody>

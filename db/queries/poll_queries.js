@@ -1,11 +1,12 @@
 const db = require('../db');
 
-const getPollsByUserId = (req) => {
+// gets poll data based on user id
+const getPollsByUserId = (id) => {
   return db.query(`
   SELECT title, description, numops
   FROM polls
   WHERE user_id = $1;`
-  , [req.user_id])
+  , [id])
     .then((response) => {
       return response.rows;
     });
@@ -65,12 +66,21 @@ const displayTitleByPollId = (req) => {
     .catch((e) => console.log(e));
 };
 
+const deletePollById = (id) => {
+  return db.query(`
+  DELETE FROM polls
+  WHERE poll.id = $1;
+  `)
+    .then((response) => response.rows);
+};
+
 
 module.exports = {
   getPollsByUserId,
   getOptionsByPollId,
+  displayOptionsByPollId,
   updatePollOptionsById,
   updatePollById,
-  displayOptionsByPollId,
-  displayTitleByPollId
+  deletePollById,
+  displayTitleByPollId,
 };
