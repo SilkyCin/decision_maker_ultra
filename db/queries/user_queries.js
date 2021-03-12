@@ -42,5 +42,4 @@ module.exports = {
   insertNewUser,
   getUser,
   getUserDetails
-
 };
