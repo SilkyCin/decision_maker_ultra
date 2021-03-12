@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 const { insertNewPoll, updateURLs, insertOptions } = require('../db/queries/insert_new_poll.js');
 const { getUserDetails, getUser } = require('../db/queries/user_queries.js');
-const { getPollsByUserId, deletePollById } = require('../db/queries/poll_queries');
+const { getPollsByUserId } = require('../db/queries/poll_queries');
 const { sendMail } = require('../helpers/helpers.js');
 
 
@@ -130,11 +130,9 @@ router.get('/:u_id/:poll_id', (req, res) => {
 //   res.redirect(`/vote/${pollID}`);
 // });
 
-// router.post('/:u_id/:poll_id', (req, res) => {
-  // if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
-  //   res.status(403).send('<h3>You must be logged in and have a valid poll id.</h3>');
-  //   return;
-  // }
-// })
-
 module.exports = router;
+
+
+
+
+{/* <td><form method="GET" action="/admin/<%= u_id %>/<%= poll_id %>"><button type="submit" class="btn btn-primary">Edit</button></form></td> */}

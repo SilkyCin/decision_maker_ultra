@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
-const { getOptionsByPollId, updatePollOptionsById, updatePollById } = require('../db/queries/poll_queries.js')
+const { getOptionsByPollId, updatePollOptionsById, updatePollById, deletePollById } = require('../db/queries/poll_queries.js')
 
-
+// update poll fields
 router.post('/:u_id/:poll_id', (req, res) => {
   let userObj;
   if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
@@ -10,32 +10,71 @@ router.post('/:u_id/:poll_id', (req, res) => {
     return;
   }
 
-  console.log(req.body);
+  // console.log(req.body);
   const data = req.body;
-  const pollData = {title : data.title, desc : data.desc}
+  const pollData = {title : data.title, desc : data.desc};
   delete data.title;
   delete data.desc;
   const opsData = data;
   for (let i in opsData) {
-     console.log(i);
-     console.log("sd");
-     updatePollOptionsById(i, opsData[i])
-     .then((response) => {
-       console.log(response.rows);
-       console.log("kmkmkmkm")
-     })
-     .catch(e => {
-       console.log(ERROR, e)
-     });
+    // console.log(i);
+    // console.log("sd");
+    updatePollOptionsById(i, opsData[i])
+      .then((response) => {
+        console.log(response.rows);
+        // console.log("kmkmkmkm")
+      })
+      .catch(e => {
+        console.log('ERROR', e);
+      });
   }
   updatePollById(pollData, req.params)
-  .then((response) => {
-    console.log(response.rows);
-    console.log("cvcvcvcv")
-  })
-  .catch(e => console.log(ERROR, e));
+    .then((response) => {
+      console.log(response.rows);
+      // console.log("cvcvcvcv")
+    })
+    .catch(e => console.log('ERROR', e));
 });
-  //res.redirect(`/admin/${req.params.u_id}/${req.params.poll_id}`);
+
+// page to update your poll
+router.get('/:u_id/:poll_id', (req, res) => {
+  let userObj;
+  if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
+    res.status(403).send('<h3>You must be logged in as the admin and have an active poll id.</h3>');
+    return;
+  }
+
+  return getOptionsByPollId(req.params)
+    .then((results) => {
+
+      console.log(results);
+      userObj = {email : req.session.email, id : req.session.user_id };
+      const templateVars = {user : userObj, poll_id : req.params.poll_id, results : results};
+      res.render('update_poll', templateVars);
+
+    })
+    .catch(er => console.log('ERROR',er));
+});
+
+// delete polls from database
+router.post('/:u_id/:poll_id/delete', (req, res) => {
+  if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
+    res.status(403).send('<h3>You must be logged into access this feature</h3>');
+    return;
+  }
+  console.log(req.params);
+  return deletePollById(req.params.poll_id)
+    .then((response) => {
+      console.log(response);
+      res.redirect('/poll');
+    // console.log("kmkmkmkm")
+    })
+    .catch(e => {
+      console.log('ERROR', e);
+    });
+});
+
+//res.redirect(`/admin/${req.params.u_id}/${req.params.poll_id}`);
 
   // return getOptionsByPollId(req.params)
   // .then((results) => {
@@ -51,24 +90,6 @@ router.post('/:u_id/:poll_id', (req, res) => {
 
 
 //endpoint for handling GETs received at the admin URL, AKA /admin/:u_id/:poll_id
-router.get('/:u_id/:poll_id', (req, res) => {
-  let userObj;
-  if (!(req.session && req.session.user_id) || req.session.user_id !== Number(req.params.u_id) || req.session.poll_id !== Number(req.params.poll_id)) {
-    res.status(403).send('<h3>You must be logged in as the admin and have an active poll id.</h3>');
-    return;
-  }
-
-  return getOptionsByPollId(req.params)
-  .then((results) => {
-
-    console.log(results);
-    userObj = {email : req.session.email, id : req.session.user_id };
-    const templateVars = {user : userObj, poll_id : req.params.poll_id, results : results};
-    res.render('update_poll', templateVars);
-
-  })
-  .catch(er => console.log('ERROR',er));
-});
 
 //endpoint to handle post requests to add basic poll info to database
 // router.post('/:u_id', (req, res) => {

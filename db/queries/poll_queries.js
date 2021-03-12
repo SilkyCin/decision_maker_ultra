@@ -69,9 +69,9 @@ const displayTitleByPollId = (req) => {
 const deletePollById = (id) => {
   return db.query(`
   DELETE FROM polls
-  WHERE poll.id = $1;
-  `)
-    .then((response) => response.rows);
+  WHERE id = $1;
+  `, [id])
+    .then((response) => response.rows[0]);
 };
 
 
