@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Vote</title>
+    <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <title>Results Page</title>
 
-<head>
-  <title>Vote</title>
-  <!-- Meta Information -->
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-  <title>Results Page</title>
+    <!-- External CSS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
-  <!-- External CSS -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap"
-    rel="stylesheet">
+    <!-- jQuery and Bootstrap CDNs -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  <!-- jQuery and Bootstrap CDNs -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- App CSS -->
+    <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <!-- App CSS -->
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <!-- App JS -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/results.js"></script>
 
-  <!-- App JS -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <%- include('partials/_header'); %>
-</head>
+  </head>
 
-<body>
-  <h1>Help <%=name%> make a decision</h1>
-  <form class="mainContainer" action="/vote/<%= p_id %>" method="POST">
-    <h2>Rank your favourite <%=title%> from 1 to <%=totalChoices%></h2>
-    <h2>with 1 being your top choice</h2>
-    <h3>
-      <%=desc%>
-    </h3>
-    <div id="voteLayout">
-      <% for (let op of ops) { %>
-        <div>
-          <label class="inputContainer">
-            <%= op.choice %>
-          </label>
-          <input type="number" name='<%= op.id %>' id="rank" min=1 max=<%=totalChoices%> required>
+  <body>
+    <h1>Help <%=name%> make a decision</h1>
+    <input type = "text" value = "<%= p_id %>" id = "poll_id" hidden />
+    <form class="mainContainer" action = "/vote/<%= p_id %>" method = "POST" id = "voterForm">
+
+      <h2>Rank your favourite <%=title%> 1st to last</h2>
+      <h3><%=desc%></h3>
+      <div id="voteLayout">
+        <% for (let op of ops) { %>
+          <div >
+            <label class="inputContainer"><%= op.choice %> </label>
+            <input type="number" name = '<%= op.id %>' id = "rank" min=1 max=<%=totalChoices%> required>
+          </div>
+          <% } %>
         </div>
-        <% } %>
-    </div>
-    <div>
-      <label>Your Name<br>(Optional)</label>
-      <input type="text" name='guest_name' id="name">
-    </div>
-    <input type="submit" value="Vote!" name="submit" class="btn btn-primary" id="sub" />
-  </form>
+        <div >
+         <label >Your Name<br>(Optional)</label>
+         <input type="text" name = 'guest_name' id="name">
+       </div>
+      <input type="submit" value="Vote!" name = "submit" class="btn btn-primary" id="sub" />
 
-</body>
+    </form>
 
+    <div id = "voteMessage">
+      <a href = "/vote/<%= p_id %>/results" >
+        <input type="button" value="View Results" class="btn btn-primary" id="resButton" />
+      </a>
+    </div>
+
+  </body>
 </html>

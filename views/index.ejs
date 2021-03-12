@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
   <head>
     <!-- Meta Information -->
@@ -15,6 +15,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- App CSS -->
+    <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- App JS -->
@@ -31,10 +33,37 @@
       <span class="draft"><del>Chooser Pro</del></span>
       <span class="draft"><del>Option Picker</del></span>
     </div>
-    <div class="landing-page">
-      <div class="img">
-        <img class="decide" src="https://images.unsplash.com/photo-1516824600626-47a22f894aff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80">
-      </div>
+
+    <div class="right">
+      <img class="decide" src="https://images.unsplash.com/photo-1516824600626-47a22f894aff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80">
     </div>
+
+    <table>
+
+
+
+        <% if (pData.length !== 0) { %>
+
+          <thead>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Admin URL</th>
+            <th>Voting URL</th>
+            <!-- <th>Edit Poll</th> -->
+          </thead>
+          <tbody>
+           <% for (let p of pData) { %>
+               <tr>
+                  <td><%= p.title %></td>
+                  <td><%= p.description %>></td>
+                  <td><%= p.admin_url %></td>
+                  <td><%= p.voting_url %></td>
+
+               </tr>
+           <% } %>
+          </tbody>
+        <% } %>
+      </table>
+
   </body>
 </html>

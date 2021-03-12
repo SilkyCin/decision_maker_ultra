@@ -8,7 +8,6 @@
 @import "./_button.scss";
 @import "./_containers.scss";
 @import "./image.scss";
-
 body {
   background-color: $bg-clr;
   font-size: $font-size;
@@ -16,7 +15,9 @@ body {
   align-items: center;
   padding-top: 90px;
 }
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: $dark-blue;
   display: flex;
   justify-content: center;
@@ -63,13 +64,5 @@ footer {
   align-items: center;
   margin-top: 20px;
 }
-
-
-
-
-
-
-
-
 
 
