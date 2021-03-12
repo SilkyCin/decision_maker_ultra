@@ -3,11 +3,7 @@
   <nav>
     <p id="logo">DECISION MAKER Ultra</p>
 
-    <% if (user===undefined || !user) { %>
-      <div id="crPoll">
-        <a class="nav-item nav-link" href="/poll">Create new poll</a>
-      </div>
-
+    <% if (user===undefined || !user) { %> 
       <div id="logInOut">
         <a href="/login" class="btn btn-primary">Login</a>
       </div>
@@ -15,6 +11,7 @@
       <% } else { %>
         <div id="crPoll">
           <a class="nav-item nav-link" href="/poll/<%= user['id'] %>">Create new poll</a>
+          <a class="nav-item nav-link" href="/poll">My Polls</a>
         </div>
         <div id="log-in-out">
           <form action="/logout" method="POST" class="logout-section">

@@ -66,27 +66,6 @@ router.post('/:u_id/:poll_id', (req, res) => {
       res.json('Done!');
     })
     .catch(e => res.send(e));
-
-  //Would prefer to use the above version instead of above
-  //
-  //
-  // console.log(req.body);
-  // const ops = req.body;
-  // for (let op in ops) {
-  //   let data = {choice : ops[op], poll_id : req.params.poll_id};
-  //   insertOptions(data)
-  //     .catch(e => console.log(ERROR, e));
-  // }
-  // return getUserDetails(req.params)
-  //   .then((resp) => {
-  //     // console.log(resp.rows);
-  //     const links = {admin : resp.rows[0].admin_url, voting : resp.rows[0].voting_url};
-  //     sendMail(resp.rows[0].email, resp.rows[0].name, links);
-  //     res.json('Done!');
-  //   })
-  //   .catch((e) => {
-  //     console.log(ERROR, e);
-  //   });
 });
 
 //endpoint to handle GETs received at /:u_id. loads the create poll page
