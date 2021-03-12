@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
           email : req.session.email,
           id : req.session.user_id
         };
+        // console.log(results)
         const templateVars = {
           user : userObj,
           results : results

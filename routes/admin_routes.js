@@ -45,7 +45,8 @@ router.post('/:u_id/:poll_id/delete', (req, res) => {
     res.status(403).send('<h3>You must be logged into access this feature</h3>');
     return;
   }
-  return deletePollById(req.params.poll_id)
+  const poll_id = Number(req.params.poll_id);
+  return deletePollById(poll_id)
     .then(() => res.redirect('/poll'))
     .catch(e => res.send(e));
 });

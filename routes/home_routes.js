@@ -15,8 +15,8 @@ router.post('/login', (req, res) => {
       req.session.user_id = results[0].id;
       userObj = {email : req.session.email, id : req.session.user_id };
       const templateVars = {user : userObj};
-      res.render('index', templateVars);
-      //res.redirect(`/poll/${results[0].id}`);
+      // res.render('user_polls', templateVars);
+      res.redirect('/poll');
     })
     .catch(er => console.log('ERROR',er));
 });

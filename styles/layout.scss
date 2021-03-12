@@ -35,6 +35,34 @@ footer {
   margin-bottom: 100px;
 }
 
+.page-title {
+  .final {
+    font-family: Shadows Into Light, sans-serif;
+    font-size: 50px;
+  }
+  .draft {
+    font-family: Shadows Into Light, sans-serif;
+    font-size: 25px;
+  }
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+
+  .img {
+    width: 80%
+  }
+}
+
+#crPoll {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
 
 
 

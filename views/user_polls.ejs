@@ -39,8 +39,8 @@
           <tr>
             <td><%= obj.title %></td>
             <td><%= obj.description %></td>
-            <td><form method="GET" action="/admin/:u_id/:poll_id/"><button type="submit" class="btn btn-primary">Edit</button></form></td>
-            <td><form method="POST" action="/admin/:u_id/:poll_id/delete"><button type="submit" class="btn btn-primary">Delete</button></form></td>
+            <td><a href="/admin/<%= user.id %>/<%= obj.id %>"><button type="submit" class="btn btn-primary">Edit</button></a></td>
+            <td><form method="POST" action="/admin/<%= user.id %>/<%= obj.id %>/delete"><button type="submit" class="btn btn-primary">Delete</button></form></td>
           </tr>
           <% } %>
         </tbody>

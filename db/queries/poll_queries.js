@@ -3,7 +3,7 @@ const db = require('../db');
 // gets poll data based on user id
 const getPollsByUserId = (userID) => {
   const queryString = `
-  SELECT title, description, numops
+  SELECT title, description, numops, id
   FROM polls
   WHERE user_id = $1;`;
   const queryParams = [userID];
@@ -73,7 +73,7 @@ const deletePollById = (id) => {
   DELETE FROM polls
   WHERE poll.id = $1;`;
   const queryParams = id;
-  return db.query(queryString)
+  return db.query(queryString, queryParams)
     .then((response) => response.rows)
     .catch(e => console.log(e));
 };
