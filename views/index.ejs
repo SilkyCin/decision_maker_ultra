@@ -1,69 +1,43 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <title>Home</title>
 
-    <!-- External CSS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<head>
+  <!-- Meta Information -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <title>Home</title>
 
-    <!-- jQuery and Bootstrap CDNs -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- External CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet">
 
-    <!-- App CSS -->
-    <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
-    <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- jQuery and Bootstrap CDNs -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <%- include('partials/_header'); %>
-  </head>
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <body>
-    <div class="page-title">
-      <span class="final">Decision Maker Ultra</span>
-      <span class="draft"><del>Make Decisions</del></span>
-      <span class="draft"><del>Chooser Pro</del></span>
-      <span class="draft"><del>Option Picker</del></span>
-    </div>
+  <%- include('partials/_header'); %>
+</head>
 
-    <div class="right">
+<body>
+  <div class="page-title">
+    <span class="final">Decision Maker Ultra</span>
+    <span class="draft"><del>Make Decisions</del></span>
+    <span class="draft"><del>Chooser Pro</del></span>
+    <span class="draft"><del>Option Picker</del></span>
+  </div>
+  <div class="landing-page">
+    <div class="img">
       <img class="decide" src="https://images.unsplash.com/photo-1516824600626-47a22f894aff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80">
     </div>
-
-    <table>
-
-
-
-        <% if (pData.length !== 0) { %>
-
-          <thead>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Admin URL</th>
-            <th>Voting URL</th>
-            <!-- <th>Edit Poll</th> -->
-          </thead>
-          <tbody>
-           <% for (let p of pData) { %>
-               <tr>
-                  <td><%= p.title %></td>
-                  <td><%= p.description %>></td>
-                  <td><%= p.admin_url %></td>
-                  <td><%= p.voting_url %></td>
-
-               </tr>
-           <% } %>
-          </tbody>
-        <% } %>
-      </table>
-
-  </body>
+  </div>
+</body>
 </html>

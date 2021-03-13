@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <title>Results Page</title>
 
-    <!-- External CSS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<head>
+  <!-- Meta Information -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <title>My Polls</title>
 
-    <!-- jQuery and Bootstrap CDNs -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- External CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet">
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- jQuery and Bootstrap CDNs -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <%- include('partials/_header'); %>
-  </head>
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
 
-  <body>
-    <h1>My polls</h1>
-    <table class="user-polls">
-      <thead>
+  <%- include('partials/_header'); %>
+</head>
+
+<body>
+  <h1>My polls</h1>
+  <table class="user-polls">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Admin URL</th>
+        <th>Voting URL</th>
+        <th>Edit Poll</th>
+      </tr>
+    <tbody>
+      <% for (const p of pData) { %>
         <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Edit Poll</th>
-          <th>Delete Poll</th>
+          <td>
+            <%= p.title %>
+          </td>
+          <td>
+            <%= p.description %>
+          </td>
+          <td>
+            <%= p.admin_url %>
+          </td>
+          <td>
+            <%= p.voting_url %>
+          </td>
+
+          <td><a href="/admin/<%= user.id %>/<%= p.id %>"><button type="submit"
+                class="btn btn-primary">Edit</button></a></td>
         </tr>
-        <tbody>
-          <% for (const obj of results) { %>
-          <tr>
-            <td><%= obj.title %></td>
-            <td><%= obj.description %></td>
-            <td><a href="/admin/<%= user.id %>/<%= obj.id %>"><button type="submit" class="btn btn-primary">Edit</button></a></td>
-            <td><form method="POST" action="/admin/<%= user.id %>/<%= obj.id %>/delete"><button type="submit" class="btn btn-primary">Delete</button></form></td>
-          </tr>
-          <% } %>
-        </tbody>
-      </thead>
-    </table>
-  </body>
+        <% } %>
+    </tbody>
+    </thead>
+  </table>
+</body>
+
 </html>

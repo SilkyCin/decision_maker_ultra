@@ -75,227 +75,7 @@ table tr:hover {
   background-color: #dedfe4;
 }
 
-body {
-  background-color: #FFF7EB;
-  font-size: 16px;
-  color: #0A1128;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 90px;
-}
-
-h1, h2, h3 {
-  color: #0A1128;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-label {
-  color: #0A1128;
-  font-size: 16px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin-top: 20px;
-}
-
-input:focus, .mainContainer #desc:focus {
-  -webkit-box-shadow: 0 0 5pt 2pt #9c9b9b;
-          box-shadow: 0 0 5pt 2pt #9c9b9b;
-  outline-width: 0px;
-  background-color: #0A1128;
-  color: white;
-  outline: none;
-}
-
-.inputContainer, label, input, .mainContainer #desc, div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 25px;
-  font-size: 16px;
-  font-weight: 300;
-}
-
-.mainContainer, .mainContainer #desc, .mainContainer #name, .mainContainer #sub, .mainContainer .log-in-out, .mainContainer #title, .mainContainer #nums {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-item-align: center;
-      align-self: center;
-  color: #0A1128;
-  margin-top: 10px;
-  margin-bottom: 40px;
-  margin-left: 250px;
-  margin-right: 250px;
-}
-
-.mainContainer #voteLayout {
-  width: 25%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -ms-flex-item-align: center;
-      align-self: center;
-}
-
-.mainContainer .updateLayout, .mainContainer #desc .updateLayout, .mainContainer #name .updateLayout, .mainContainer #sub .updateLayout, .mainContainer .log-in-out .updateLayout, .mainContainer #title .updateLayout, .mainContainer #nums .updateLayout {
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -ms-flex-item-align: center;
-      align-self: center;
-}
-
-.mainContainer .updateLayout #update {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.mainContainer #desc {
-  color: white;
-}
-
-.mainContainer #rank {
-  font-size: 20px;
-  width: 75px;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
-.mainContainer #name {
-  width: 200px;
-}
-
-.mainContainer #sub {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin-left: 10em;
-  margin-right: 10em;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-item-align: center;
-      align-self: center;
-  color: white;
-  font-size: 20px;
-}
-
-.mainContainer .log-in-out, .mainContainer #desc .log-in-out, .mainContainer #name .log-in-out, .mainContainer #sub .log-in-out, .mainContainer .log-in-out .log-in-out, .mainContainer #title .log-in-out, .mainContainer #nums .log-in-out {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  color: white;
-}
-
-.mainContainer #title {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  width: 33%;
-}
-
-.mainContainer #desc {
-  padding-bottom: 5em;
-}
-
-.mainContainer #nums {
-  width: 5em;
-  margin-bottom: 1.5em;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.image-win {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  vertical-align: middle;
-}
-
-footer {
-  margin-bottom: 100px;
-}
-
-.login {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 80px;
-}
-
-.login-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
-}
-
-.login-fields {
-  padding: 5px;
-}
-
-input, .mainContainer #desc {
+input, #name, #desc {
   border-radius: 5px;
   border-style: solid;
   border-width: 2px;
@@ -306,23 +86,24 @@ input, .mainContainer #desc {
   outline: none;
 }
 
-input[type=text]:focus, .mainContainer #desc[type=text]:focus, input:focus[type=email], .mainContainer #desc:focus[type=email] {
+input:focus, #name:focus, #desc:focus {
+  -webkit-box-shadow: 0 0 5pt 2pt #9c9b9b;
+          box-shadow: 0 0 5pt 2pt #9c9b9b;
+  outline-width: 0px;
   background-color: #0A1128;
   color: white;
   outline: none;
 }
 
-.btn-primary {
-  background-color: #FF9E00;
+#rank {
   font-size: 20px;
-  border-radius: 5px;
-  border: none;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 75px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+#name {
+  width: 200px;
 }
 
 .logout-section {
@@ -343,5 +124,238 @@ input[type=text]:focus, .mainContainer #desc[type=text]:focus, input:focus[type=
           align-items: center;
   color: white;
   margin-right: 10px;
+  margin-top: 20px;
+}
+
+.log-in-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  color: white;
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 80px;
+}
+
+#title {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 33%;
+}
+
+#nums {
+  width: 5em;
+  margin-bottom: 1.5em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+#desc {
+  padding-bottom: 5em;
+}
+
+#desc:focus {
+  color: white;
+}
+
+.btn-primary {
+  background-color: #FF9E00;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 10em;
+  margin-right: 10em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: white;
+  font-size: 20px;
+}
+
+.mainContainer, #name, .log-in-out, #title, #nums, #desc, #sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: #0A1128;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.mainContainer #voteLayout, #name #voteLayout, .log-in-out #voteLayout, #title #voteLayout, #nums #voteLayout, #desc #voteLayout, #sub #voteLayout {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.mainContainer .updateLayout, #name .updateLayout, .log-in-out .updateLayout, #title .updateLayout, #nums .updateLayout, #desc .updateLayout, #sub .updateLayout {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.mainContainer .updateLayout #update, #name .updateLayout #update, .log-in-out .updateLayout #update, #title .updateLayout #update, #nums .updateLayout #update, #desc .updateLayout #update, #sub .updateLayout #update {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.inputContainer, input, #name, #desc, label, div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 25px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.image-win {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+body {
+  background-color: #FFF7EB;
+  font-size: 16px;
+  color: #0A1128;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 90px;
+}
+
+h1,
+h2,
+h3 {
+  color: #0A1128;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+label {
+  color: #0A1128;
+  font-size: 16px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 20px;
+}
+
+footer {
+  margin-bottom: 100px;
+}
+
+.page-title .final {
+  font-family: Shadows Into Light, sans-serif;
+  font-size: 50px;
+}
+
+.page-title .draft {
+  font-family: Shadows Into Light, sans-serif;
+  font-size: 25px;
+}
+
+.landing-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+  margin: auto;
+}
+
+.landing-page .img {
+  width: 80%;
+}
+
+#crPoll {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=layout.css.map */

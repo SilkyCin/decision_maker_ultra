@@ -4,10 +4,6 @@
   align-self: center;
   width: 33%;
 }
-#desc {
-  @extend .mainContainer;
-  padding-bottom: 5em;
-}
 #nums {
   @extend .mainContainer;
   width: 5em;
@@ -17,6 +13,7 @@
 #desc {
   @extend .mainContainer;
   @extend input;
+  padding-bottom: 5em;
   &:focus {
     color: white;
   }

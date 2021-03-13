@@ -17,6 +17,6 @@ function sendMail (emailPerson, namePerson, links) {
   mg.messages().send(data, function (error, body) {
 	  console.log(body);
   });
-}
+};
 module.exports = { sendMail };
 

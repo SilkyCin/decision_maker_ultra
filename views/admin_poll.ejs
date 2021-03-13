@@ -1,71 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <title>Create Poll</title>
+<head>
+  <title>Create Choices</title>
 
-     <!-- Meta Information -->
-     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <!-- Meta Information -->
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
-     <!-- External CSS -->
-     <link rel="preconnect" href="https://fonts.gstatic.com">
-     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-     <!-- jQuery and Bootstrap CDNs -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- External CSS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@300;700&family=Shadows+Into+Light&display=swap"
+    rel="stylesheet">
+  <!-- jQuery and Bootstrap CDNs -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-     <!-- App CSS -->
-     <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
-     <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
-     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- App CSS -->
+  <!-- <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" /> -->
+  <!-- <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" /> -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-     <!-- App JS -->
-     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-     <script type="text/javascript" src="/scripts/app.js"></script>
-     <script type="text/javascript" src="/scripts/update.js"></script>
+  <!-- App JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/update.js"></script>
 
-    <%- include('partials/_header'); %>
-  </head>
+  <%- include('partials/_header'); %>
+</head>
 
-  <body>
-    <h1>Poll creation</h1>
+<body>
+  <h1>Poll Creation</h1>
 
   </form>
-  <input type = "text" name = "poll_id" id = "poll_id" value = "<%= poll_id %>" hidden/>
-  <input type = "text" name = "user_id" id = "user_id" value = "<%= user['id'] %>" hidden/>
-  <form action = "/poll/<%= user['id'] + '/' + poll_id %>" method = "POST" class = "mainContainer" id = "pollForm" >
+  <input type="text" name="poll_id" id="poll_id" value="<%= poll_id %>" hidden />
+  <input type="text" name="user_id" id="user_id" value="<%= user['id'] %>" hidden />
+  <form action="/poll/<%= user['id'] + '/' + poll_id %>" method="POST" class="mainContainer" id="pollForm">
 
-    <% for (let num = 1; num <= opNum; num++) { %>
+    <% for (let num=1; num <=opNum; num++) { %>
       <div class="inputContainer">
-        <label for = "op<%= num %>">Option <%= num %></label>
-        <input type="text" name = "op<%= num %>" id = "option" required/>
+        <label for="op<%= num %>">Option <%= num %></label>
+        <input type="text" name="op<%= num %>" id="option" required />
       </div>
-    <% } %>
+      <% } %>
 
-    <input id = "sub" type="submit" value = "submit" class="btn btn-primary"/>
+        <input type="submit" value="submit" class="btn btn-primary" />
   </form>
-  <div class = "mainContainer" id = "linksMsg">
-    <div class= "inputContainer">
-      <h3 >Your poll has been created. Below are 3 links which have also been sent to you at the email address you provided</h3>
+  <div class="mainContainer" id="linksMsg">
+    <div class="inputContainer">
+      <h3>Your poll has been created. Below are 3 links which have also been sent to you at the email address you
+        provided</h3>
 
       <label>Admin - do not share this url</label>
-      <input type = "text" value= "/admin/<%= user['id'] + '/' + poll_id %>" disabled/>
+      <input type="text" value="/admin/<%= user['id'] + '/' + poll_id %>" disabled />
 
       <label>Vote - Share this URL with your friends!</label>
-      <input type = "text" value="/vote/<%= poll_id %>" disabled/>
+      <a href="/vote/<%= poll_id %>"><input type="text" value="/vote/<%= poll_id %>" disabled /></a>
 
       <label>Results - View the results</label>
-      <input type = "text" value = "/vote/<%= poll_id %>/results" disabled/>
+      <a href="/vote/<%= poll_id %>/results"><input type="text" value="/vote/<%= poll_id %>/results" disabled /></a>
     </div>
   </div>
 
-  <!-- <label for = "">Voting URL</label>
-  <input type = "url" name = "voting_url" value = "/vote/<%= poll_id %>" hidden/>  -->
+</body>
 
-
-  </body>
 </html>
-
-
